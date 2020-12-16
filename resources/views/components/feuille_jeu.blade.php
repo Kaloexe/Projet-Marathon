@@ -7,8 +7,14 @@
                 <div class="card-body">
                     <p class="card-text">
                     <ul>
-                        <li> Nom : {{$nom->nom}}</li>
+                        <li>Nom : {{$nom->nom}}</li>
+                        <li>Editeur :</li>
+                        <li>Theme</li>
+                        <li>Tags :</li>
+
+
                     </ul>
+
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">

@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>VikGames - Règles</title>
+    <title>VikGames - Liste des jeux</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -64,8 +64,7 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="regles">Règles</a>
-        <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
-
+        <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -79,16 +78,14 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-    <?php
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
-
     <div class="album py-5 bg-light">
-        <h1>Règles</h1>
+        <h1>Liste des jeux</h1>
+
+        <a href="{{'listeJeux'}}">
+            <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
+            </button>
+        </a>
+
         <div class="container">
             @if(!empty($jeux))
 
@@ -103,6 +100,7 @@
                                     <li> Catégorie : {{$jeu->categorie}}</li>
                                     <li> Durée de partie : {{$jeu->duree}}</li>
                                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                                    <li> Description : {{$jeu->description}}</li>
 
                                 </ul>
                                 </p>
@@ -116,6 +114,7 @@
                             </div>
                         </div>
                     </div>
+                    <br>
                 @endforeach
 
             @else

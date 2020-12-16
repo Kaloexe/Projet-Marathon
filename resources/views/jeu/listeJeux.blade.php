@@ -79,9 +79,10 @@
 <main>
 
     <div class="album py-5 bg-light">
+
         <h1>Liste des jeux</h1>
 
-        <a href="{{route('listeJeux')}}">
+        <a href="{{'tri'}}">
             <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
             </button>
         </a>
