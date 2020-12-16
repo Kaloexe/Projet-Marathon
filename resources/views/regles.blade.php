@@ -114,12 +114,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <li>{{$jeu->nom}} {{$jeu->description}} {{$jeu->regles}} {{$jeu->langue}} {{$jeu->langue}} {{$jeu->url_media}} {{$jeu->age}}
-                        {{$jeu->nombre_joueurs}}  {{$jeu->duree}}
-
-                    </li>
                 @endforeach
 
             @else
