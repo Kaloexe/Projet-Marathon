@@ -58,57 +58,14 @@
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
-
-    <?php
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
-
-    <div class="album py-5 bg-light">
-        <h1>Règles</h1>
-        <div class="container">
-            @if(!empty($jeux))
-
-                @foreach($jeux as $jeu)
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
-
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <ul>
-                                        <li> Catégorie : {{$jeu->categorie}}</li>
-                                        <li> Durée de partie : {{$jeu->duree}}</li>
-                                        <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-
-                                    </ul>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-            @else
-                <h3>Aucun jeu</h3>
-            @endif
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">{{Auth::user()->name}}</h2>
+                <p class="lead">Email : {{Auth::user()->email}}</p>
             </div>
         </div>
     </div>
-
 </main>
 
 <footer class="container py-5">
