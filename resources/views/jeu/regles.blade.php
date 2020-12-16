@@ -5,9 +5,7 @@
 {{--        </h2>--}}
 {{--    </x-slot>--}}
 {{--</x-app-layout>--}}
-
-
-    <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -15,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>VikGames - Règles</title>
+    <title>VikGames - Accueil</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -35,7 +33,6 @@
 
 
     <style>
-
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -56,6 +53,7 @@
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
 </head>
 <body>
+
 <header class="site-header sticky-top py-1">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="#" aria-label="Product">
@@ -72,64 +70,33 @@
                 <button class="px-4 py-2 block  text-black hover:bg-grey-light" type="submit">Déconnexion</button>
             </form>
         </div>
-
+    </nav>
+    <nav class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="#">Accueil</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Règles</a>
     </nav>
 </header>
 
-<script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+
 <main>
-
-    <?php
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
-
-    <div class="album py-5 bg-light">
-        <h1>Règles</h1>
-        <div class="container">
-            @if(!empty($jeux))
-
-                @foreach($jeux as $jeu)
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
-
-                            <div class="card-body">
-                                <p class="card-text">
-                                <ul>
-                                    <li> Catégorie : {{$jeu->categorie}}</li>
-                                    <li> Durée de partie : {{$jeu->duree}}</li>
-                                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-
-                                </ul>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-            @else
-                <h3>Aucun jeu</h3>
-            @endif
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
+    <div class="card-body">
+        <p class="card-text">
+        <ul>
+            <li> Jeu : {{$jeu->nom}}</li>
+            <li> Règle : {{$jeu->regles}}</li>
+            <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
+                <a href="{{ URL::route('listeJeux')}}" class="btn btn-warning">Retour à la liste des jeux</a>
             </div>
-        </div>
-    </div>
+            </div>
 
+        </ul>
+        </p>
+    </div>
 </main>
+
 
 <footer class="container py-5">
     <div class="row">
@@ -151,9 +118,10 @@
     </div>
 </footer>
 
+
+<script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
-
-
-
 
