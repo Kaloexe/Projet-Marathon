@@ -55,6 +55,8 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="regles">Règles</a>
+        <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -65,25 +67,112 @@
 </header>
 
 <main>
-    <form>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<div class="card-body">
+    <form name="form-create-jeu" method="post" action="{{ URL::route('listeJeux') }}">
+        @csrf
+
         <div class="form-group">
-            <label for="exampleInputEmail1">Nom</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rentrer le nom du jeu">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="form-control" required="">
         </div>
+
         <div class="form-group">
-            <label for="exampleInputPassword1">description</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer la descripton du jeu">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" required="">
+                    {{ old('description') }}
+                </textarea>
         </div>
+
         <div class="form-group">
-            <label for="exampleInputPassword1">théme</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer le théme du jeu">
+            <label for="regle">Regle</label>
+            <textarea name="regle" class="form-control">
+                {{ old('regle') }}
+            </textarea>
         </div>
+
+
         <div class="form-group">
-            <label for="exampleInputPassword1">éditeur</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer l'éditeur du jeu">
+            <label for="langue">Langue</label>
+            <input type="string" name="langue" value="{{ old('langue') }}" class="form-control" >
         </div>
-        <button type="submit" class="btn btn-primary">Ajouter le jeu</button>
+
+        <div class="form-group">
+            <label for="url_media">Url-media</label>
+            <input type="string" name="url_media" value="{{ old('url_media') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="integer" name="age" value="{{ old('age') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="nombre_joueurs">Nombre de Joueurs</label>
+            <input type="integer" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="categorie">Catégorie</label>
+            <input type="string" name="categorie" value="{{ old('categorie') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="duree">Durée</label>
+            <input type="string" name="duree" value="{{ old('duree') }}" class="form-control" >
+        </div>
+
+{{--        <div class="form-group">--}}
+{{--            <label for="description">Id</label>--}}
+{{--            <select name="user">--}}
+{{--                @foreach( \App\Models\User::all() as $user)--}}
+{{--                    @if (old('id') == $user->id)--}}
+{{--                        <option value="{{ $user->id }}" selected>{{ $user->nom }}</option>--}}
+{{--                    @else--}}
+{{--                        <option value="{{ $user->id }}">{{ $user->nom }}</option>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
+
+        <div class="form-group">
+            <label for="description">Theme</label>
+            <select name="theme">
+                @foreach( \App\Models\Theme::all() as $theme)
+                    @if (old('theme') == $theme->id)
+                        <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
+                    @else
+                        <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Editeur</label>
+            <select name="editeur">
+                @foreach( \App\Models\Editeur::all() as $editeur)
+                    @if (old('editeur') == $editeur->id)
+                        <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                    @else
+                        <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
+</div>
 </main>
 
 
@@ -113,3 +202,5 @@
 
 </body>
 </html>
+
+
