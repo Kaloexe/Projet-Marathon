@@ -18,6 +18,7 @@
     <link rel="icon" href="{{asset('images/favicon.png')}}">
     <meta name="theme-color" content="#7952b3">
 
+
     <style>
 
         .bd-placeholder-img {
@@ -47,6 +48,7 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profil">Profil</a>
         <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -57,7 +59,7 @@
 
     </nav>
 </header>
-
+{{--hihi--}}
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
