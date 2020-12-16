@@ -27,7 +27,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
+Route::get('/formulaire' , function() {
+    return view('formulaire');
+});
 Route::middleware(['auth:sanctum', 'verified'])->resource('listeJeux', 'App\Http\Controllers\JeuController');
 
 Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@index");
 
+Route::middleware(['auth:sanctum', 'verified'])->resource('ListeJeux', 'App\Http\Controllers\Jeux\AddController');

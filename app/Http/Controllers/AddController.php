@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Jeu;
 use Illuminate\Http\Request;
 
-class JeuxController extends Controller
+class AddController extends Controller
 {
     public function index() {
         $jeux = Jeu::all();
