@@ -61,13 +61,13 @@
 <main>
 
     <div class="album py-5 bg-light">
+        <div class="col-md-10 p-lg-10 mx-auto my-10">
+            <h1>Liste des jeux</h1>
 
-        <h1>Liste des jeux</h1>
-
-        <a href="{{'tri'}}">
-            <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
-            </button>
-        </a>
+            <a href="{{'tri'}}">
+                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
+            </a>
+        </div>
 
         <div class="container">
 
