@@ -6,6 +6,7 @@ use App\Models\Commentaire;
 use App\Models\Jeu;
 use App\Models\Mecanique;
 use App\Models\User;
+use Database\Factories\JeuPersoFactory;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -30,10 +31,12 @@ class DatabaseSeeder extends Seeder {
                 MecaniquesSeeder::class,
                 ThemesSeeder::class,
                 UsersSeeder::class,
+                JeuxSeeder::class,
             ]
         );
         $faker = Factory::create('fr_FR');
         $jeux = Jeu::factory(50)->create();
+
         $mecanisque_ids = Mecanique::all()->pluck('id');
         $user_ids = User::all()->pluck('id');
         foreach ($jeux as $jeu) {
