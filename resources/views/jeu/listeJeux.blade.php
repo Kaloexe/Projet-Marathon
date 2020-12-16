@@ -93,7 +93,6 @@
                                     <li> Catégorie : {{$jeu->categorie}}</li>
                                     <li> Durée de partie : {{$jeu->duree}}</li>
                                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-
                                 </ul>
                                    </p>
                                 <div class="d-flex justify-content-between align-items-center">
