@@ -86,18 +86,62 @@
         </div>
 
         <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" required="">
+                    {{ old('description') }}
+                </textarea>
+        </div>
+
+        <div class="form-group">
             <label for="regle">Regle</label>
             <textarea name="regle" class="form-control">
                 {{ old('regle') }}
             </textarea>
         </div>
 
+
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" class="form-control" required="">
-                {{ old('description') }}
-            </textarea>
+            <label for="langue">Langue</label>
+            <input type="string" name="langue" value="{{ old('langue') }}" class="form-control" >
         </div>
+
+        <div class="form-group">
+            <label for="url_media">Url-media</label>
+            <input type="string" name="url_media" value="{{ old('url_media') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="integer" name="age" value="{{ old('age') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="nombre_joueurs">Nombre de Joueurs</label>
+            <input type="integer" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="categorie">Catégorie</label>
+            <input type="string" name="categorie" value="{{ old('categorie') }}" class="form-control" >
+        </div>
+
+        <div class="form-group">
+            <label for="duree">Durée</label>
+            <input type="string" name="duree" value="{{ old('duree') }}" class="form-control" >
+        </div>
+
+{{--        <div class="form-group">--}}
+{{--            <label for="description">Id</label>--}}
+{{--            <select name="user">--}}
+{{--                @foreach( \App\Models\User::all() as $user)--}}
+{{--                    @if (old('id') == $user->id)--}}
+{{--                        <option value="{{ $user->id }}" selected>{{ $user->nom }}</option>--}}
+{{--                    @else--}}
+{{--                        <option value="{{ $user->id }}">{{ $user->nom }}</option>--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--        </div>--}}
 
         <div class="form-group">
             <label for="description">Theme</label>
