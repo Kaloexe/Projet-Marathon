@@ -34,7 +34,9 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\
 
 Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
 Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index");
+Route::get('/tri', [JeuController::class, 'tri'])->name('listeJeux');
+Route::get('/show/{id}', [JeuController::class, 'show'])->name('jeu_show');
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
-Route::get('/tri', [JeuController::class, 'tri'])->name('listeJeux');
+

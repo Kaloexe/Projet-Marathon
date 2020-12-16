@@ -53,9 +53,12 @@ class JeuController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $jeux = Jeu::all();
 
+        $jeu = $jeux->find($id);
+
+        return view('jeu.show', ['jeu' => $jeu]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
