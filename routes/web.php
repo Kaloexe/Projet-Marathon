@@ -32,11 +32,12 @@ Route::get('/formulaire' , function() {
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\Http\Controllers\JeuController');
 
-Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
+Route::middleware(['auth:sanctum', 'verified'])->resource('profil', 'App\Http\Controllers\ProfilController');
+
+Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
 Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index");
 
 Route::get('/tri', [JeuController::class, 'tri'])->name('listeJeux');
-
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 /*
