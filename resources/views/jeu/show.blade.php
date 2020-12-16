@@ -71,6 +71,11 @@
             </form>
         </div>
     </nav>
+    <nav class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="#">Accueil</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Règles</a>
+    </nav>
 </header>
 
 
@@ -88,7 +93,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'info</a>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'info</a>
             </div>
             <small class="text-muted">9 mins</small>
         </div>

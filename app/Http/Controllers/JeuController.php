@@ -51,6 +51,12 @@ class JeuController extends Controller
         return view('jeu.show', ['jeu' => $jeu]);
     }
 
+    public function regles($id){
+        $jeu = Jeu::find($id);
+        return view('jeu.regles', ['jeu' => $jeu]);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
