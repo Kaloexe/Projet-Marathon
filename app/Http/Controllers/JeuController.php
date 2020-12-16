@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jeu;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+
 class JeuController extends Controller
 {
     /**
@@ -30,16 +33,7 @@ class JeuController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -84,5 +78,37 @@ class JeuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function store(Request $request)
+    {
+
+        $request->validate(
+            [
+                'nom' => 'required|unique:jeux',
+                'description' => 'required',
+                'theme' => 'required',
+                'editeur' => 'required',
+            ],
+            [
+                'nom.required' => 'Le nom est requis',
+                'nom.unique' => 'Le nom doit être unique',
+                'description.required' => 'La description est requise',
+                'theme.required' => 'Le théme est requis',
+                'editeur.required' => 'L\'editeur est requis',
+            ]
+        );
+
+        $jeu = new Jeu();
+        $jeu->nom = $request->nom;
+        $jeu->description = $request->description;
+        $jeu->theme_id = $request->theme;
+        $jeu->user_id = Auth::user()->id;
+        $jeu->editeur_id = $request->editeur;
+        $jeu->url_media = 'https://picsum.photos/seed/%27.$jeu-%3Enom.%27/200/200';
+
+        $jeu->save();
+
+        return Redirect::route('listeJeux');
     }
 }

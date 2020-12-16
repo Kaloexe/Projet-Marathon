@@ -39,3 +39,5 @@ Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames")
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
 Route::get('/listeJeux', [JeuController::class, 'tri'])->name('listeJeux');
+
+Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
