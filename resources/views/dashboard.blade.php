@@ -71,7 +71,7 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 fw-normal">Bienvenue dans notre boutique de jeux !</h1>
             <p class="lead fw-normal">Grâce au bouton ci-dessous, vous pouvez choisir entre 5 jeux aléatoirement</p>
-            <a class="btn btn-outline-secondary" href="{{'dashboard'}}">Coming soon</a>
+            <a class="btn btn-outline-secondary" href="{{'dashboard'}}">Jeux aléatoires</a>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
