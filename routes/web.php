@@ -40,6 +40,8 @@ Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('list
 Route::get('/tri', [JeuController::class, 'tri'])->name('listeTri');
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
+
+Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
