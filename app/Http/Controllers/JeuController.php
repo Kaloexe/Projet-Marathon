@@ -51,14 +51,12 @@ class JeuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $jeux = Jeu::all();
 
-        $jeu = $jeux->find($id);
-
+    public function show($id){
+        $jeu = Jeu::find($id);
         return view('jeu.show', ['jeu' => $jeu]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *

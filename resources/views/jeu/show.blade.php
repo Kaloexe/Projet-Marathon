@@ -3,8 +3,10 @@
 @section('title', 'Détail du jeu')
 
 @section('content')
-
+    {{$jeu->nom}}
+    <!--
     <div class="row justify-content-center">
+
         <div class="col-6 ">
             <div class="card">
                 <img src="{{ url($jeu->url_media) }}" class="card-img-top" alt="...">
@@ -44,4 +46,5 @@
         </div>
     </div>
     <a href="{{ URL::route('listeJeux') }}" class="btn btn-secondary">Retour à la liste des jeux</a>
+     -->
 @endsection
