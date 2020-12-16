@@ -74,13 +74,21 @@
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Nom</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Rentrer le nom du jeu">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">description</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer la descripton du jeu">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+            <label for="exampleInputPassword1">théme</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer le théme du jeu">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">éditeur</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rentrer l'éditeur du jeu">
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter le jeu</button>
     </form>
 </main>
 
