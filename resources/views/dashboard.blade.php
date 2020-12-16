@@ -60,7 +60,13 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Liste des jeux</a>
+        <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="px-4 py-2 block  text-black hover:bg-grey-light" type="submit">Déconnexion</button>
+                </form>
+        </div>
     </nav>
 </header>
 
@@ -71,7 +77,7 @@
         <div class="col-md-5 p-lg-5 mx-auto my-5">
             <h1 class="display-4 fw-normal">Bienvenue dans notre boutique de jeux !</h1>
             <p class="lead fw-normal">Grâce au bouton ci-dessous, vous pouvez choisir entre 5 jeux aléatoirement</p>
-            <a class="btn btn-outline-secondary" href="{{'dashboard'}}">Jeux aléatoires</a>
+            <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Coming soon</a>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
