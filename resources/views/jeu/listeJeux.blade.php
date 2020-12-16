@@ -82,19 +82,11 @@
 
 
 
-    <form method="post">
-        <input type="submit" name="test" id="test" value="RUN" /><br/>
-    </form>
+    <a href="{{route('jeux.trie')}}">
+        <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Trie
+        </button>
+    </a>
 
-    <?php
-
-
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
 
     <div class="album py-5 bg-light">
         <div class="container">

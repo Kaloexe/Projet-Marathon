@@ -16,7 +16,7 @@ class JeuController extends Controller
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
     function trie() {
-        $jeux = Jeu::all();
+        $jeux = "select * from jeux order by nom";
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
 
