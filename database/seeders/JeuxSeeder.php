@@ -27,6 +27,7 @@ class JeuxSeeder extends Seeder
         $jeux->user_id=1;
         $jeux->theme_id=1;
         $jeux->editeur_id=1;
+        $jeux->categorie="Jeu de Cartes";
         $jeux->save();
     }
 }
