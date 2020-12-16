@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/enonce', function () {
     return view('enonce.index');
 });
@@ -27,5 +26,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+<<<<<<< HEAD
 Route::middleware(['auth:sanctum', 'verified'])->resource('listeJeux', 'App\Http\Controllers\JeuController');
+=======
+Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@index");
+
+>>>>>>> origin/master
 
