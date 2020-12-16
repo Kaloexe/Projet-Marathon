@@ -31,9 +31,8 @@ Route::get('/formulaire' , function() {
     return view('formulaire');
 });
 
-Route::get('/regles' , function() {
-    return view('regles');
-});
+
+Route::middleware(['auth:sanctum', 'verified'])->resource('regles', 'App\Http\Controllers\RegleController');
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('listeJeux', 'App\Http\Controllers\JeuController');
 

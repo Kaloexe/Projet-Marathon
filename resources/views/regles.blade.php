@@ -1,4 +1,13 @@
-<!doctype html>
+{{--<x-app-layout>--}}
+{{--    <x-slot name="header">--}}
+{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            {{ __('Dashboard') }}--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
+{{--</x-app-layout>--}}
+
+
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Accueil liste des jeux</title>
+    <title>Liste des jeux</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -26,6 +35,7 @@
 
 
     <style>
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -46,7 +56,6 @@
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
 </head>
 <body>
-
 <header class="site-header sticky-top py-1">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="#" aria-label="Product">
@@ -55,31 +64,86 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="regles">Règles</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button class="px-4 py-2 block  text-black hover:bg-grey-light" type="submit">Déconnexion</button>
             </form>
         </div>
+
     </nav>
 </header>
 
-
+<script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">Bienvenue dans la !</h1>
-            <p class="lead fw-normal">Grâce au bouton ci-dessous, vous pouvez choisir entre 5 jeux aléatoirement</p>
-            <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Choix aléatoire</a>
+
+
+
+
+    <form method="post">
+        <input type="submit" name="test" id="test" value="RUN" /><br/>
+    </form>
+
+    <?php
+
+
+
+    if(array_key_exists('test',$_GET)){
+        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
+    }
+
+    ?>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            @if(!empty($jeux))
+
+                @foreach($jeux as $jeu)
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+
+                            <div class="card-body">
+                                <p class="card-text">
+                                <ul>
+                                    <li> Catégorie : {{$jeu->categorie}}</li>
+                                    <li> Durée de partie : {{$jeu->duree}}</li>
+                                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+
+                                </ul>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <li>{{$jeu->nom}} {{$jeu->description}} {{$jeu->regles}} {{$jeu->langue}} {{$jeu->langue}} {{$jeu->url_media}} {{$jeu->age}}
+                        {{$jeu->nombre_joueurs}}  {{$jeu->duree}}
+
+                    </li>
+                @endforeach
+
+            @else
+                <h3>Aucun jeu</h3>
+            @endif
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+            </div>
         </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
-    @yield('content')
 
 </main>
-
 
 <footer class="container py-5">
     <div class="row">
@@ -101,9 +165,9 @@
     </div>
 </footer>
 
-
-<script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
-
-
 </body>
 </html>
+
+
+
+
