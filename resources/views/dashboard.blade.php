@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Accueil liste des jeux</title>
+    <title>VikGames - Accueil</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 

@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Liste des jeux</title>
+    <title>VikGames - Liste des jeux</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -78,25 +78,14 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-
-
-
-
-    <form method="post">
-        <input type="submit" name="test" id="test" value="RUN" /><br/>
-    </form>
-
-    <?php
-
-
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
-
     <div class="album py-5 bg-light">
+        <h1>Liste des jeux</h1>
+
+        <a href="{{route('listeJeux')}}">
+            <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
+            </button>
+        </a>
+
         <div class="container">
             @if(!empty($jeux))
 

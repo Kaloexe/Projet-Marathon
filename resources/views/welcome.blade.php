@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>VikGames</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Scripts -->
@@ -20,12 +20,13 @@
     <div class="container mx-auto flex flex-wrap items-center">
         <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
             <p class="text-white no-underline hover:text-white hover:no-underline" href="#">
-                <span class="text-2xl pl-2">VikGame</span>
+                <span class="text-2xl pl-2">VikGames</span>
             </p>
         </div>
         <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
+                <a href="{{ url('/regles') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Règles</a>
+            @auth
                     <a href="{{ url('/dashboard') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Page d'accueil</a>
                 @else
                     <a href="{{ route('login') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Connexion</a>

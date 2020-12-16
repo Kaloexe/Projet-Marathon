@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jeu;
-class JeuController extends Controller
+class RegleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,7 @@ class JeuController extends Controller
      */
     function index() {
         $jeux = Jeu::all();
-        return view('jeu.listeJeux', ['jeux' => $jeux]);
-    }
-    function tri() {
-        $jeux = Jeu::all()->sortBy('nom');
-        return view('jeu.listeJeux', ['jeux' => $jeux]);
+        return view('regles', ['jeux' => $jeux]);
     }
 
     /**
