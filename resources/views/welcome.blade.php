@@ -20,17 +20,13 @@
     <div class="container mx-auto flex flex-wrap items-center">
         <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
             <p class="text-white no-underline hover:text-white hover:no-underline" href="#">
-<<<<<<< HEAD
-                <span class="text-2xl pl-2"><i class="fa fa-home"></i>VikGame</span>
-=======
-                <span class="text-2xl pl-2"><i class="fa fa-home"></i> IUT Lens</span>
->>>>>>> origin/master
+                <span class="text-2xl pl-2">VikGame</span>
             </p>
         </div>
         <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Page d'accueil</a>
                 @else
                     <a href="{{ route('login') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Connexion</a>
 
@@ -49,14 +45,8 @@
     <!--Left Col-->
     <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6">
         <p class="uppercase tracking-loose">IUT de Lens - Département Informatique</p>
-<<<<<<< HEAD
         <h1 class="font-bold text-3xl my-4">Boutique de jeux</h1>
         <p class="leading-normal mb-4">Projet marathon 2020</p>
-=======
-        <h1 class="font-bold text-3xl my-4">Boutique de Smartphone</h1>
-        <p class="leading-normal mb-4">Projet fil rouge de la découverte du framework <a href="https://laravel.com/">Laravel</a>.</p>
->>>>>>> origin/master
-        <a type="button" href="http://www.cril.univ-artois.fr/~hemery/enseignement/An20-21/m3104/index.html" class="bg-transparent hover:bg-gray-900 text-gray-900 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent">Enoncé</a>
     </div>
     <!--Right Col-->
     <div class="w-full lg:w-1/2 lg:py-6 text-center">
