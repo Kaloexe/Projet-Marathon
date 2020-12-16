@@ -35,11 +35,10 @@ Route::get('/regles' , function() {
     return view('regles');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->resource('listeJeux', 'App\Http\Controllers\JeuController');
+Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\Http\Controllers\JeuController');
 
 Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
-/*
-Route::middleware(['auth:sanctum', 'verified'])->resource('ListeJeux', 'App\Http\Controllers\Jeux\AddController');
-Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
-*/
-Route::get('/listeJeux', [JeuController::class, 'tri'])->name('listeJeux');
+
+
+
+Route::get('/listeJeux/tri', [JeuController::class, 'tri'])->name('jeu.tri');
