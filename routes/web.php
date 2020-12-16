@@ -22,9 +22,6 @@ Route::get('/enonce', function () {
     return view('enonce.index');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 
 Route::get('/formulaire' , function() {
@@ -37,6 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('regles', 'App\Http\Co
 Route::middleware(['auth:sanctum', 'verified'])->resource('listeJeux', 'App\Http\Controllers\JeuController');
 
 Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
+
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */

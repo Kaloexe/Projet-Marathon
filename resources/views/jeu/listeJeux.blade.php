@@ -100,6 +100,8 @@
                                     <li> Catégorie : {{$jeu->categorie}}</li>
                                     <li> Durée de partie : {{$jeu->duree}}</li>
                                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                                    <li> Description : {{$jeu->description}}</li>
+
                                 </ul>
                                    </p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -112,17 +114,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-                        <li>{{$jeu->nom}} {{$jeu->description}} {{$jeu->regles}} {{$jeu->langue}} {{$jeu->langue}} {{$jeu->url_media}} {{$jeu->age}}
-                            {{$jeu->nombre_joueurs}}  {{$jeu->duree}}
-
-                        </li>
+                        <br>
                     @endforeach
 
             @else
