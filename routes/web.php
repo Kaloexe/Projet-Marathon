@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/enonce', function () {
     return view('enonce.index');
 });
@@ -25,5 +24,7 @@ Route::get('/enonce', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@index");
 
 
