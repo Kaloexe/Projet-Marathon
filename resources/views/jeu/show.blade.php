@@ -57,50 +57,47 @@
 </header>
 
 <main>
-    <div class="card-body">
-        <p class="card-text">
-        <ul>
-            <li> Jeu : {{$jeu->nom}}</li>
-            <li> Durée de partie : {{$jeu->duree}}</li>
-            <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-            <li> Description : {{$jeu->description}}</li>
-            <li> Photo : {{$jeu->url_media}}</li>
-            <li> Thème :
+    <div class="album py-5 bg-light">
+        <div class="col-md-10 p-lg-10 mx-auto my-10">
+            <div class="card-body">
+                <p class="card-text">
+                <ul>
+                    <li> Jeu : {{$jeu->nom}}</li>
+                    <li> Durée de partie : {{$jeu->duree}}</li>
+                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                    <li> Description : {{$jeu->description}}</li>
+                    <li> Photo : {{$jeu->url_media}}</li>
+                    <li> Thème :
 
-                    @foreach( \App\Models\Theme::all() as $theme)
-                        @if ($jeu->theme_id == $theme->id)
-                            {{ $theme->nom }}
+                            @foreach( \App\Models\Theme::all() as $theme)
+                                @if ($jeu->theme_id == $theme->id)
+                                    {{ $theme->nom }}
 
-                        @endif
-                    @endforeach
-                 </li>
-            <li> Langue :  {{$jeu->langue}}</li>
-            <li> Editeur :
-                @foreach( \App\Models\Editeur::all() as $editeur)
-                    @if ($jeu->editeur_id == $editeur->id)
-                        {{ $editeur->nom }}
+                                @endif
+                            @endforeach
+                         </li>
+                    <li> Langue :  {{$jeu->langue}}</li>
+                    <li> Editeur :
+                        @foreach( \App\Models\Editeur::all() as $editeur)
+                            @if ($jeu->editeur_id == $editeur->id)
+                                {{ $editeur->nom }}
 
-                    @endif
-                @endforeach </li>
-            <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
-            <li> Durée : {{$jeu->duree}} </li>
+                            @endif
+                        @endforeach </li>
+                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
+                    <li> Durée : {{$jeu->duree}} </li>
 
-
-
-
-
-
-
-        </ul>
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
-                <a href="{{ URL::route('listeJeux')}}" class="btn btn-secondary">Voir les règles</a
+                </ul>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{{ URL::route('listeJeux')}}" class="btn btn-primary">Retour à la liste</a>
+                        <a href="{{ URL::route('jeu_regles', $jeu->id)}}" class="btn btn-secondary">Voir les règles</a
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </main>
 
 <footer class="container py-5">

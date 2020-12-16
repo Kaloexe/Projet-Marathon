@@ -120,7 +120,7 @@ class JeuController extends Controller
 
     public function randomGames(){
         $randomGames = Jeu::inRandomOrder()->limit(5)->get();
-        return view('Jeux.index', compact('randomGames'));
+        return view('jeu.index', compact('randomGames'));
     }
 
     function tri() {

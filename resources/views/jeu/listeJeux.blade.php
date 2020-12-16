@@ -9,15 +9,12 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
-
-
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="icon" href="{{asset('images/favicon.png')}}">
     <meta name="theme-color" content="#7952b3">
-
 
     <style>
 
@@ -36,10 +33,10 @@
         }
     </style>
 
-
     <!-- Custom styles for this template -->
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
 </head>
+
 <body>
 <header class="site-header sticky-top py-1">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
@@ -48,8 +45,8 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
-        <a class="py-2 d-none d-md-inline-block" href="/profil">Profil</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="formulaire">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -59,7 +56,7 @@
 
     </nav>
 </header>
-{{--hihi--}}
+
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
@@ -99,15 +96,13 @@
                             </div>
                         </div>
                     </div>
-                        <br>
+                    <br>
                     @endforeach
-
             @else
                 <h3>Aucun jeu</h3>
             @endif
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
 
             </div>
         </div>

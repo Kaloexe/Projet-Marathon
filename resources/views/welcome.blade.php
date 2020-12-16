@@ -16,9 +16,9 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body  class="bg-green-400 font-sans leading-normal tracking-normal">
+<body  class="bg-grey font-sans leading-normal tracking-normal">
 <!--Nav-->
-<nav class="bg-green-800 p-2 mt-0 w-full"> <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
+<nav class="bg-dark p-2 mt-0 w-full"> <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
     <div class="container mx-auto flex flex-wrap items-center">
         <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
             <p class="text-white no-underline hover:text-white hover:no-underline" href="#">
@@ -27,14 +27,13 @@
         </div>
         <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                <a href="{{ url('/regles') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Règles</a>
             @auth
-                    <a href="{{ url('/dashboard') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Page d'accueil</a>
+                    <a href="{{ url('/dashboard') }}" class="text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Page d'accueil</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Connexion</a>
+                    <a href="{{ route('login') }}" class="text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Connexion</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Enregistrement</a>
+                        <a href="{{ route('register') }}" class="text-white no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Enregistrement</a>
                     @endif
                 @endauth
             </div>

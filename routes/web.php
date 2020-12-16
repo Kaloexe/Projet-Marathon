@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('profil', 'App\Http\Controllers\ProfilController');
 
-Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
+Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
 Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
 
 Route::get('/tri', [JeuController::class, 'tri'])->name('listeTri');
