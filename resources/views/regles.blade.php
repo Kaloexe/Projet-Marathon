@@ -78,17 +78,7 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-
-
-
-
-    <form method="post">
-        <input type="submit" name="test" id="test" value="RUN" /><br/>
-    </form>
-
     <?php
-
-
 
     if(array_key_exists('test',$_GET)){
         Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
@@ -97,6 +87,7 @@
     ?>
 
     <div class="album py-5 bg-light">
+        <h1>Règles</h1>
         <div class="container">
             @if(!empty($jeux))
 

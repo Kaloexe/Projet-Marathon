@@ -78,17 +78,14 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-
-
-
-
-    <a href="{{route('listeJeux')}}">
-        <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
-        </button>
-    </a>
-
-
     <div class="album py-5 bg-light">
+        <h1>Liste des jeux</h1>
+
+        <a href="{{route('listeJeux')}}">
+            <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
+            </button>
+        </a>
+
         <div class="container">
             @if(!empty($jeux))
 
