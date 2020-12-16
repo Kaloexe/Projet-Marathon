@@ -15,6 +15,10 @@ class JeuController extends Controller
         $jeux = Jeu::all();
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+    function trie() {
+        $jeux = Jeu::all();
+        return view('jeu.listeJeux', ['jeux' => $jeux]);
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -5,6 +5,8 @@
 {{--        </h2>--}}
 {{--    </x-slot>--}}
 {{--</x-app-layout>--}}
+
+
     <!doctype html>
 <html lang="en">
 <head>
@@ -33,6 +35,7 @@
 
 
     <style>
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -53,7 +56,6 @@
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
 </head>
 <body>
-
 <header class="site-header sticky-top py-1">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="#" aria-label="Product">
@@ -79,6 +81,22 @@
 <main>
 
 
+
+
+
+    <form method="post">
+        <input type="submit" name="test" id="test" value="RUN" /><br/>
+    </form>
+
+    <?php
+
+
+
+    if(array_key_exists('test',$_GET)){
+        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
+    }
+
+    ?>
 
     <div class="album py-5 bg-light">
         <div class="container">
