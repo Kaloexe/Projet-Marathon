@@ -65,10 +65,10 @@
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button class="px-4 py-2 block  text-black hover:bg-grey-light" type="submit">Déconnexion</button>
-                </form>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="px-4 py-2 block  text-black hover:bg-grey-light" type="submit">Déconnexion</button>
+            </form>
         </div>
     </nav>
 </header>
