@@ -42,4 +42,3 @@ Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames")
 Route::middleware(['auth:sanctum', 'verified'])->resource('ListeJeux', 'App\Http\Controllers\Jeux\AddController');
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
-Route::get('/applications/trie', [ApplicationController::class, 'trie'])->name('application.trie');
