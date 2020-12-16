@@ -70,27 +70,29 @@
         </a>
 
         <div class="container">
+
             @if(!empty($jeux))
 
                     @foreach($jeux as $jeu)
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+                    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <ul>
+                                        <li> Catégorie : {{$jeu->categorie}}</li>
+                                        <li> Durée de partie : {{$jeu->duree}}</li>
+                                        <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                                        <li> Description : {{$jeu->description}}</li>
 
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <ul>
-                                    <li> Catégorie : {{$jeu->categorie}}</li>
-                                    <li> Durée de partie : {{$jeu->duree}}</li>
-                                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-                                    <li> Description : {{$jeu->description}}</li>
-
-                                </ul>
-                                   </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'info</a>
-                                        <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                                    </ul>
+                                       </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'info</a>
+                                            <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                 <small class="d-block mb-3 text-muted">&copy; 2020</small>
             </div>
             <div class="col-6 col-md">
-                <h5>La Vikteam</h5>
+                <h5>La Vik Team</h5>
                 <ul class="list-unstyled text-small">
                     <li>Mathieu Maes</li>
                     <li>Océane Pouilly</li>
