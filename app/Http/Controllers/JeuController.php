@@ -18,14 +18,6 @@ class JeuController extends Controller
         $jeux = Jeu::all();
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
-    function tri() {
-        $jeux = Jeu::all()->sortBy('nom');
-
-        return view('jeu.tri', ['jeux' => $jeux]);
-
-
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +28,6 @@ class JeuController extends Controller
     {
         //
     }
-
-
 
     /**
      * Display the specified resource.
@@ -121,5 +111,21 @@ class JeuController extends Controller
         $jeu->save();
 
         return Redirect::route('listeJeux');
+    }
+
+    public function add()
+    {
+        return view('jeux_add');
+    }
+
+    public function randomGames(){
+        $randomGames = Jeu::inRandomOrder()->limit(5)->get();
+        return view('Jeux.index', compact('randomGames'));
+    }
+
+    function tri() {
+        $jeux = Jeu::all()->sortBy('nom');
+
+        return view('jeu.tri', ['jeux' => $jeux]);
     }
 }
