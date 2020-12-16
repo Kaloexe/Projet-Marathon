@@ -17,12 +17,8 @@ class JeuxSeeder extends Seeder
     {
         $faker = Faker::create();
         $jeux = new Jeu();
-        // $jeux->id = "Vik-Team" . $faker->text(300);
         $jeux->nom = "Vik-Team" . $faker->words(2, true);
         $jeux->description = "Vik-Team" . $faker->text(300);
-        // $jeux->mecanique = "Vik-Team" . $faker->text(300);
-        //  $jeux->univers = "Vik-Team" . $faker->text(300);
-        //  $jeux->affichagephoto = "Vik-Team" . $faker->randomElement();
         $jeux->regles = "Vik-Team" . $faker->text(300);
         $jeux->langue = "Fr";
         $jeux->url_media = $faker->imageUrl(640, 480);
