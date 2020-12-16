@@ -15,6 +15,8 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
+
 </head>
 <body  class="bg-grey font-sans leading-normal tracking-normal">
 <!--Nav-->

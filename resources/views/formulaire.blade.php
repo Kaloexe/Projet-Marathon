@@ -15,7 +15,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
 
