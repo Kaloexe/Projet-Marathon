@@ -25,7 +25,8 @@
         </div>
         <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
+                <a href="{{ url('/regles') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Règles</a>
+            @auth
                     <a href="{{ url('/dashboard') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Page d'accueil</a>
                 @else
                     <a href="{{ route('login') }}" class="text-gray-500 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">Connexion</a>

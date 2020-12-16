@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Liste des jeux</title>
+    <title>VikGames - Liste des jeux</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -78,17 +78,14 @@
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
-
-
-
-
-    <a href="{{route('listeJeux')}}">
-        <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Trie
-        </button>
-    </a>
-
-
     <div class="album py-5 bg-light">
+        <h1>Liste des jeux</h1>
+
+        <a href="{{'listeJeux'}}">
+            <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
+            </button>
+        </a>
+
         <div class="container">
             @if(!empty($jeux))
 
@@ -103,6 +100,7 @@
                                     <li> Catégorie : {{$jeu->categorie}}</li>
                                     <li> Durée de partie : {{$jeu->duree}}</li>
                                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                                    <li> Description : {{$jeu->description}}</li>
 
                                 </ul>
                                 </p>
@@ -116,17 +114,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-                    <li>{{$jeu->nom}} {{$jeu->description}} {{$jeu->regles}} {{$jeu->langue}} {{$jeu->langue}} {{$jeu->url_media}} {{$jeu->age}}
-                        {{$jeu->nombre_joueurs}}  {{$jeu->duree}}
-
-                    </li>
+                    <br>
                 @endforeach
 
             @else

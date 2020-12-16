@@ -22,23 +22,19 @@ Route::get('/enonce', function () {
     return view('enonce.index');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
 
 Route::get('/formulaire' , function() {
     return view('formulaire');
 });
 
-Route::get('/regles' , function() {
-    return view('regles');
-});
 
+Route::middleware(['auth:sanctum', 'verified'])->resource('regles', 'App\Http\Controllers\RegleController');
 Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\Http\Controllers\JeuController');
 
 Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
-
-
-
-Route::get('/listeJeux/tri', [JeuController::class, 'tri'])->name('jeu.tri');
+Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index");
+/*
+Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
+*/
+Route::get('/tri', [JeuController::class, 'tri'])->name('listeJeux');
