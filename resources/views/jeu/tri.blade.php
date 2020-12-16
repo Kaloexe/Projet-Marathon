@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
+    <meta name="author" content="La Vik Team">
     <title>VikGames - Liste des jeux</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
@@ -49,7 +48,6 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
-        <a class="py-2 d-none d-md-inline-block" href="regles">Règles</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
         <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
@@ -59,11 +57,6 @@
             </form>
         </div>
 
-    </nav>
-    <nav class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="#">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Liste des jeux</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Règles</a>;
     </nav>
 </header>
 
