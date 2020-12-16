@@ -48,7 +48,7 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
-        <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="/profil">Profil</a>
         <a class="py-2 d-none d-md-inline-block" href="{{'formulaire'}}">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -59,14 +59,15 @@
 
     </nav>
 </header>
-
+{{--hihi--}}
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
     <div class="album py-5 bg-light">
+
         <h1>Liste des jeux</h1>
 
-        <a href="{{'listeJeux'}}">
+        <a href="{{'tri'}}">
             <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
             </button>
         </a>
@@ -91,10 +92,9 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'info</a>
+                                        <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
                                     </div>
-                                    <small class="text-muted">9 mins</small>
                                 </div>
                             </div>
                         </div>
