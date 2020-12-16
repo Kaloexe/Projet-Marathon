@@ -61,12 +61,61 @@
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
             <div class="my-3 py-3">
-                <h2 class="display-5">{{Auth::user()->name}}</h2>
+                <h2 class="display-5">Bienvenue {{Auth::user()->name}}</h2>
                 <p class="lead">Email : {{Auth::user()->email}}</p>
             </div>
         </div>
     </div>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="card-body">
+        <h2 class="text-center">Ajout d'un jeu dans ma ludothèque</h2>
+        <form name="form-create-jeu" method="post" action="{{ URL::route('listeJeux') }}">
+            @csrf
+
+            <div class="form-group">
+                <label for="nom">Nom du jeu</label>
+                <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="lieu">Lieu de stockage</label>
+                <input type="text" id="lieu" name="lieu" value="{{ old('lieu') }}" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="dateAchat">Date d'achat</label>
+                <input type="date" id="dateAchat" name="dateAchat" value="{{ old('dateAchat') }}" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="prix">Prix</label>
+                <input type="float" id="prix" name="prix" value="{{ old('prix') }}" class="form-control" required="">
+            </div>
+        </form>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Ma ludothèque</h2>
+                <p class="lead">Contenu</p>
+            </div>
+        </div>
+    </div>
+
 </main>
+
 
 <footer class="container py-5">
     <div class="row">
