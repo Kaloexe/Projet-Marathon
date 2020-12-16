@@ -17,7 +17,11 @@ class JeuController extends Controller
     }
     function tri() {
         $jeux = Jeu::all()->sortBy('nom');
-        return view('jeu.listeJeux', ['jeux' => $jeux]);
+
+        return view('jeu.tri', ['jeux' => $jeux]);
+
+
+
     }
 
     /**
