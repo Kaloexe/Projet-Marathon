@@ -82,6 +82,32 @@
             <li> Durée de partie : {{$jeu->duree}}</li>
             <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
             <li> Description : {{$jeu->description}}</li>
+            <li> Photo : {{$jeu->url_media}}</li>
+            <li> Thème :
+
+                    @foreach( \App\Models\Theme::all() as $theme)
+                        @if ($jeu->theme_id == $theme->id)
+                            {{ $theme->nom }}
+
+                        @endif
+                    @endforeach
+                 </li>
+            <li> Langue :  {{$jeu->langue}}</li>
+            <li> Editeur :
+                @foreach( \App\Models\Editeur::all() as $editeur)
+                    @if ($jeu->editeur_id == $editeur->id)
+                        {{ $editeur->nom }}
+
+                    @endif
+                @endforeach </li>
+            <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
+            <li> Durée : {{$jeu->duree}} </li>
+
+
+
+
+
+
 
         </ul>
         </p>
