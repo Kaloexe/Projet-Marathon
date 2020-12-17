@@ -124,7 +124,7 @@
         </div>
 
         <div class="form-group">
-            <label for="description">Theme</label>
+            <label for="description">Thème</label>
             <select name="theme">
                 @foreach( \App\Models\Theme::all() as $theme)
                     @if (old('theme') == $theme->id)

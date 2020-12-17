@@ -20,7 +20,7 @@
 </head>
 <body  class="bg-grey font-sans leading-normal tracking-normal">
 <!--Nav-->
-<nav class="bg-dark p-2 mt-0 w-full"> <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
+<nav class="bg-dark p-2 mt-0 w-full sticky-top" > <!-- Add this to make the nav fixed: "fixed z-10 top-0" -->
     <div class="container mx-auto flex flex-wrap items-center">
         <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
             <p class="text-white no-underline hover:text-white hover:no-underline" href="#">
@@ -49,8 +49,10 @@
     <!--Left Col-->
     <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6">
         <p class="uppercase tracking-loose">IUT de Lens - Département Informatique</p>
-        <h1 class="font-bold text-3xl my-4">Boutique de jeux</h1>
-        <p class="leading-normal mb-4">Projet marathon 2020</p>
+        <h1 class="font-bold text-3xl my-4">Bienvenue sur la ludothèque en ligne VikGames !</h1>
+        <h3 class="font-bold text-3xl my-4">Veuillez vous connecter pour continuer </h3>
+
+            <p class="leading-normal mb-4">Projet marathon 2020</p>
     </div>
     <!--Right Col-->
     <div class="w-full lg:w-1/2 lg:py-6 text-center">
@@ -64,6 +66,24 @@
     <script src="{{ asset('js/main.js')}}"></script>
     <script src="{{ asset('img/app.js')}}"></script>
 @show
-
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+            <small class="d-block mb-3 text-muted">&copy; 2020</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>La Vik Team</h5>
+            <ul class="list-unstyled text-small">
+                <li>Mathieu Maes</li>
+                <li>Océane Pouilly</li>
+                <li>Guillaume Vandeville</li>
+                <li>Sasha Voiseux</li>
+                <li>Germain Poloudenny</li>
+                <li>Camille Plaska</li>
+            </ul>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

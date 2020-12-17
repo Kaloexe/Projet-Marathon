@@ -66,6 +66,8 @@
             <a href="{{'tri'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
             </a>
+            <br />
+            <div class="col-md-12 p-lg-12 mx-auto my-10" style="display: inline-flex">
             <div class="card-body">
                 <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
                     <div class="form-group">
@@ -81,8 +83,9 @@
                                 @endif
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
             </div>
 
@@ -101,8 +104,9 @@
                                 @endif
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
             </div>
 
@@ -121,11 +125,12 @@
                                 @endif
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
             </div>
-
+            </div>
         </div>
 
         <div class="container">

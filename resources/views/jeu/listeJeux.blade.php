@@ -67,64 +67,69 @@
             <a href="{{'tri'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
             </a>
-            <div class="card-body">
-                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
-                    <div class="form-group">
-                        <label for="description">Editeur</label>
-                        <select name="editeur">
-                            @foreach( \App\Models\Editeur::all() as $editeur)
+            <div class="col-md-12 p-lg-12 mx-auto my-10" style="display: inline-flex">
+                <div class="card-body">
+                    <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
+                        <div class="form-group">
+                            <label for="description">Editeur</label>
+                            <select name="editeur">
+                                @foreach( \App\Models\Editeur::all() as $editeur)
 
-                                @if (old('editeur') == $editeur->id)
+                                    @if (old('editeur') == $editeur->id)
 
-                                    <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
-                                @else
-                                    <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                                        <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                                    @else
+                                        <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
 
-            <div class="card-body">
-               <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
-                   <div class="form-group">
-                     <label for="description">Thèmes</label>
-                      <select name="theme">
-                           @foreach( \App\Models\Theme::all() as $theme)
+                    </form>
+                </div>
 
-                            @if (old('theme') == $theme->id)
+                <div class="card-body">
+                    <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
+                        <div class="form-group">
+                            <label for="description">Thèmes</label>
+                            <select name="theme">
+                                @foreach( \App\Models\Theme::all() as $theme)
 
-                                  <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
-                                @else
-                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
-                               @endif
-                           @endforeach
-                    </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-         </div>
+                                    @if (old('theme') == $theme->id)
 
-            <div class="card-body">
-                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxMecanique') }}">
-                    <div class="form-group">
-                        <label for="description">Mécaniques</label>
-                        <select name="mecanique">
-                            @foreach( \App\Models\Mecanique::all() as $mecanique)
+                                        <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
+                                    @else
+                                        <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
 
-                                @if (old('mecanique') == $mecanique-> id)
+                    </form>
+                </div>
 
-                                    <option value="{{ $mecanique->id }}" selected>{{ $mecanique->nom }}</option>
-                                @else
-                                    <option value="{{ $mecanique->id }}">{{ $mecanique->nom }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <div class="card-body">
+                    <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxMecanique') }}">
+                        <div class="form-group">
+                            <label for="description">Mécaniques</label>
+                            <select name="mecanique">
+                                @foreach( \App\Models\Mecanique::all() as $mecanique)
+
+                                    @if (old('mecanique') == $mecanique-> id)
+
+                                        <option value="{{ $mecanique->id }}" selected>{{ $mecanique->nom }}</option>
+                                    @else
+                                        <option value="{{ $mecanique->id }}">{{ $mecanique->nom }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
 
         </div>
