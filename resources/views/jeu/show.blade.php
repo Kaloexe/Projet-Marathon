@@ -67,7 +67,6 @@
                     <li> Durée de partie : {{$jeu->duree}}</li>
                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
                     <li> Description : {{$jeu->description}}</li>
-                    <li> Photo : {{$jeu->url_media}}</li>
                     <li> Thème :
 
                         @foreach( \App\Models\Theme::all() as $theme)
@@ -87,6 +86,7 @@
                         @endforeach </li>
                     <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
                     <li> Durée : {{$jeu->duree}} </li>
+                    <li> Photo : <br> <img src="{{$jeu->url_media}}" style="width: 20%; height: 200px";></img></li>
 
                 </ul>
                 </p>
