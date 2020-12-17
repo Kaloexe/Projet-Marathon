@@ -150,7 +150,7 @@
                 @foreach( \App\Models\User::all() as $user)
                     @if ($user->id == $com->user_id)
                         <li>  {{ $user->name }}
-                            <a href="{{route('commentaire.show',['id'=>$com->id])}}">Suppression du commentaire</a>
+                            <a class="btn btn-outline-secondary" href="{{route('commentaire.show',['id'=>$com->id])}}"}}>Supprimer</a>
                         </li>
 
                     @endif
