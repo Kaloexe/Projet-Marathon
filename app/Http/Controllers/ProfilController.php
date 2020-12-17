@@ -95,8 +95,9 @@ class ProfilController extends Controller
     }
 
     public function removeAchat($id) {
-            $user = Auth::user();
-            $user->ludo_perso()->detach($id);
+        $user = Auth::user();
+        $user->ludo_perso()->detach($id);
+        return redirect()->route('profil');
     }
 
     public function storeAchat(Request $request)
@@ -120,4 +121,5 @@ class ProfilController extends Controller
         $jeux = $user->ludo_perso1();
         return view('afficheachat', ['jeux' => $jeux]);
     }
+
 }
