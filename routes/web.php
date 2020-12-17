@@ -45,6 +45,7 @@ Route::get('/jeu/{id}/tri', [JeuController::class, 'triChrono'])->name('showTri'
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 Route::get('/commentaire/{id}',[\App\Http\Controllers\CommentaireController::class, 'show'])->name('commentaire.show');
 Route::get('/commentaire/delete/{id}',[\App\Http\Controllers\CommentaireController::class, 'delete'])->name('commentaire.delete');
+Route::get('/meilleur',"\App\Http\Controllers\JeuController@bestGames");
 
 Route::get('liste/{nb?}',[JeuController::class, 'list'])->name('pagination');
 
