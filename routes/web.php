@@ -34,26 +34,31 @@ Route::get('/formulaire' , function() {
 Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\Http\Controllers\JeuController');
 Route::middleware(['auth:sanctum', 'verified'])->resource('profil', 'App\Http\Controllers\ProfilController');
 
+//page d'accueil
 Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
 
+//Différentes listes des jeux (paginations + tris)
 Route::get('tri', [JeuController::class, 'tri'])->name('listeJeuxTri');
 Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
 Route::get('listeJeuxPages/{nb?}', [JeuController::class, 'list'])->name('pagination');
 Route::get('listeJeuxTheme/{nb?}', [JeuController::class, 'indexTheme'])->name('listeJeuxTheme');
 Route::get('listeJeuxMecanique/{nb?}', [JeuController::class, 'indexMecanique'])->name('listeJeuxMecanique');
+
+//Détails des jeux (Infos complémentaires + commentaires)
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/jeu/{id}/tri', [JeuController::class, 'triChrono'])->name('showTri');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 Route::get('/commentaire/{id}',[\App\Http\Controllers\CommentaireController::class, 'show'])->name('commentaire.show');
 Route::get('/commentaire/delete/{id}',[\App\Http\Controllers\CommentaireController::class, 'delete'])->name('commentaire.delete');
 Route::get('/meilleur',"\App\Http\Controllers\JeuController@bestGames");
-Route::get('liste/{nb?}',[JeuController::class, 'list'])->name('pagination');
 
+//Profil + ludothèque personnelle
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');
 Route::get('/achatjeu', [ProfilController::class,'addAchat'])->name('achatjeu')->middleware('auth');
 Route::get('/supprimer/{id}', [ProfilController::class,'removeAchat'])->name('supprimerA')->middleware('auth');
 Route::get('/afficheachat', [ProfilController::class,'afficheAchat'])->name('afficheachat')->middleware('auth');
 
+//formulaires ajout jeu + commentaire + profil
 Route::post('/commentaire/store',"\App\Http\Controllers\AddController@commentairestore")->name('commentaire.store')->middleware('auth');
 Route::post('/profil', [ProfilController::class,'storeAchat'])->name('storeAchat')->middleware('auth');
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
