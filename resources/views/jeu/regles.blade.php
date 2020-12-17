@@ -13,7 +13,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
     <style>
@@ -62,9 +62,10 @@
     <div class="col-md-8 p-lg-8 mx-auto my-10">
         <div class="card-body">
             <p class="card-text">
+            <h1>{{$jeu->nom}}</h1><br/><br/>
             <ul>
-                <li> Jeu : {{$jeu->nom}}</li>
-                <li> Règle : {{$jeu->regles}}</li>
+
+                <li> <b style="font-size: 20px">Règles :</b> {{$jeu->regles}}</li>
                 <br />
                 <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
