@@ -89,6 +89,12 @@
 
                 </ul>
                 </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{{ URL::route('listeJeux')}}" class="btn btn-primary">Retour à la liste</a>
+                        <a href="{{ URL::route('jeu_regles', $jeu->id)}}" class="btn btn-secondary">Voir les règles</a
+                    </div>
+                </div>
             </div>
         </div>
     </div>
