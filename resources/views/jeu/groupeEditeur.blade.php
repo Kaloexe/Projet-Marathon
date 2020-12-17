@@ -64,11 +64,11 @@
         <div class="col-md-10 p-lg-10 mx-auto my-10">
             <h1>Liste des jeux</h1>
 
+            <a href="{{'tri'}}">
+                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
+            </a>
             <a href="{{'listeJeux'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Retour à la liste</button>
-            </a>
-            <a href="{{'groupeEditeur'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par éditeur</button>
             </a>
             <a href="{{'tri'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par thème</button>
@@ -84,6 +84,20 @@
 
                 @foreach($jeux as $jeu)
                     <div class="col">
+                        <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
+                            <div class="form-group">
+                                <label for="description">Editeur</label>
+                                <select name="editeur">
+                                    @foreach( \App\Models\Editeur::all() as $editeur)
+                                        @if (old('editeur') == $editeur->id)
+                                            <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                                        @else
+                                            <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form>
                         <div class="card shadow-sm">
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
 

@@ -67,7 +67,7 @@
             <a href="{{'tri'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
             </a>
-            <a href="{{'tri'}}">
+            <a href="{{'groupeEditeur'}}">
                 <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par éditeur</button>
             </a>
             <a href="{{'tri'}}">
