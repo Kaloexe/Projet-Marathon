@@ -15,7 +15,7 @@ class DureeConvert
         if ($heures ==0)
             return $chaine. ' '. $minutes . ' minutes.';
         $jours=(int)($heures/24);
-        if ($heures ==0)
+        if ($jours ==0)
             return $chaine. ' '. $heures . ' heures.';
         $semaines =(int)($jours/7);
         if ($semaines ==0)
