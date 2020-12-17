@@ -18,20 +18,6 @@ class CommentaireController extends Controller
         return view('commentaires.show', ['commentaire' => $commentaire, 'action' => $action]);
     }
 
-//    public function delete(Request $request, $id)
-//    {
-//        $this->authorize('delete', Commentaire::find($id));
-//
-//        $action = $request->get('action', 'annule');
-//        $commentaire = Commentaire::find($id);
-//        $jeu_id = $commentaire->jeu->id;
-//        if ($action == 'valide') {
-//            $commentaire->delete();
-//        }
-//        return redirect()->route('jeu_show', ['id' => $jeu_id]);
-//    }
-
-
 
     public function delete(Request $request, $id) {
         $commentaire = Commentaire::find($id);
