@@ -12,5 +12,6 @@ class UsersSeeder extends Seeder {
      * @return void
      */
     public function run() {
+        User::Factory(5)->create();
     }
 }

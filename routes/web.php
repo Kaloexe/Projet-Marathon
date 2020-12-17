@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JeuController;
+use App\Http\Controllers\ProfilController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,7 @@ Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
+Route::post('/profil', [ProfilController::class, 'add'])->name('profil')->middleware('auth');
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
