@@ -110,4 +110,19 @@ class DureeConvert
         else
             return 'Pas de classement.';
     }
+
+    static public function nbUserTotal(){
+        $nb=0;
+
+        foreach (\App\Models\Jeu::all() as $jeu){
+            $nb+=$jeu->nbAchat();
+
+
+        }
+        return $nb;
+    }
+
+
+
+
 }

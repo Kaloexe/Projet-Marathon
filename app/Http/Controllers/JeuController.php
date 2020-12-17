@@ -135,4 +135,6 @@ class JeuController extends Controller
 
         return view('jeu.showTri', ['jeu' => $jeu]);
     }
+
+
 }

@@ -175,6 +175,16 @@
 
     </ul>
 
+    <span class="mini-titre">Informations tarifaires :</span>
+    <ul>
+        <li> Prix moyen : {{ $jeu->prixMoyen()  }}</li>
+        <li> Prix maximal : {{ $jeu->prixMax()  }}</li>
+        <li> Prix minimal : {{ $jeu->prixMin()  }}</li>
+        <li> Nombre d'achats : {{ $jeu->nbAchat()  }}</li>
+        <li> Nombre d'utilisateurs : {{\App\Http\Services\DureeConvert::nbUserTotal()  }}</li>
+
+    </ul>
+
 
 
 </main>
