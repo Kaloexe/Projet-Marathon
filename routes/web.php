@@ -46,7 +46,7 @@ Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles')
 Route::get('/commentaire/{id}',[\App\Http\Controllers\CommentaireController::class, 'show'])->name('commentaire.show');
 Route::get('/commentaire/delete/{id}',[\App\Http\Controllers\CommentaireController::class, 'delete'])->name('commentaire.delete');
 
-Route::get('liste',[JeuController::class, 'list'])->name('pagination');
+Route::get('liste/{nb?}',[JeuController::class, 'list'])->name('pagination');
 
 
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');

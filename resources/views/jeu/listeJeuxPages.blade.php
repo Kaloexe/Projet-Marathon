@@ -98,9 +98,9 @@
 
     <div class="card-body">
         <form method="get" action="{{ URL::route('pagination') }}">
-            <a href="" type="submit" onclick="list(15)">15</a>
-            <a href="" type="submit" onclick="list(20)">20</a>
-            <a href="" type="submit" onclick="list(25)">25</a>
+            <a href="{{route('pagination',15)}}" type="submit">15</a>
+            <a href="{{route('pagination',20)}}" type="submit">20</a>
+            <a href="{{route('pagination',25)}}" type="submit">25</a>
         </form>
     </div>
 
