@@ -61,22 +61,47 @@
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
             <div class="my-3 py-3">
-                <h2 class="display-5">Bienvenue {{Auth::user()->name}}</h2>
-                <p class="lead">Email : {{Auth::user()->email}}</p>
+                <h2 class="display-5">Ma ludothèque</h2>
+                <p class="lead">
+                    <div class="container">
+
+                        @if(!empty($jeux))
+                            @foreach($jeux as $jeu)
+                                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+                                            <div class="card-body">
+                <p class="card-text">
+                <ul style="color: black">
+                    <li> Catégorie : {{$jeu->categorie}}</li>
+                    <li> Durée de partie : {{$jeu->duree}}</li>
+                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                    <li> Description : {{$jeu->description}}</li>
+
+                </ul>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'infos</a>
+                        <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    </div>
+    <br>
+    @endforeach
+    @else
+        <h3>Aucun jeu</h3>
+    @endif
 
-    <a href="{{route('achatjeu')}}">
-        Achat d'un jeu
-    </a>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-    <a href="{{route('afficheachat')}}">
-      Afficher la ludothèque
-    </a>
-
-
-
+    </div>
+    </div>
+    </div>
 
 </main>
 

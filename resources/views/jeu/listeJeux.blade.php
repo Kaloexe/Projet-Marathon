@@ -113,7 +113,6 @@
         <div class="container">
 
             @if(!empty($jeux))
-
                     @foreach($jeux as $jeu)
                     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
                         <div class="col">

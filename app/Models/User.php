@@ -72,4 +72,10 @@ class User extends Authenticatable
             ->as('achat')
             ->withPivot('prix', 'lieu', 'date_achat');
     }
+
+    function ludo_perso1() {
+        return $this->belongsToMany(Jeu::class, 'achats')
+            ->as('achat')
+            ->withPivot('prix', 'lieu', 'date_achat')->get();
+    }
 }
