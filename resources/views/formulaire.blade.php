@@ -86,41 +86,41 @@
         </div>
 
         <div class="form-group">
-            <label for="regle">Règles</label>
-            <textarea name="regle" class="form-control">
-                {{ old('regle') }}
+            <label for="regles">Règles</label>
+            <textarea name="regles" class="form-control" required="">
+                {{ old('regles') }}
             </textarea>
         </div>
 
 
         <div class="form-group">
             <label for="langue">Langue</label>
-            <input type="string" name="langue" value="{{ old('langue') }}" class="form-control" >
+            <input type="string" name="langue" value="{{ old('langue') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">
             <label for="url_media">Url-media</label>
-            <input type="string" name="url_media" value="{{ old('url_media') }}" class="form-control" >
+            <input type="string" name="url_media" value="{{ old('url_media') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">
             <label for="age">Âge</label>
-            <input type="integer" name="age" value="{{ old('age') }}" class="form-control" >
+            <input type="integer" name="age" value="{{ old('age') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">
             <label for="nombre_joueurs">Nombre de joueurs</label>
-            <input type="integer" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" >
+            <input type="integer" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">
             <label for="categorie">Catégorie</label>
-            <input type="string" name="categorie" value="{{ old('categorie') }}" class="form-control" >
+            <input type="string" name="categorie" value="{{ old('categorie') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">
             <label for="duree">Durée</label>
-            <input type="string" name="duree" value="{{ old('duree') }}" class="form-control" >
+            <input type="string" name="duree" value="{{ old('duree') }}" class="form-control" required="" >
         </div>
 
         <div class="form-group">

@@ -131,6 +131,9 @@ class JeuController extends Controller
                 'description' => 'required',
                 'theme' => 'required',
                 'editeur' => 'required',
+                'langue' => 'required',
+                'age' => 'required',
+                'image' => 'file|max:500000',
             ],
             [
                 'nom.required' => 'Le nom est requis',
@@ -138,6 +141,9 @@ class JeuController extends Controller
                 'description.required' => 'La description est requise',
                 'theme.required' => 'Le théme est requis',
                 'editeur.required' => 'L\'editeur est requis',
+                'langue.required' => 'la langues est requise',
+                'age.required' => 'l\'age est requise',
+                'image.file' => 'Poids max 500Ko',
             ]
         );
 
@@ -147,12 +153,43 @@ class JeuController extends Controller
         $jeu->theme_id = $request->theme;
         $jeu->user_id = Auth::user()->id;
         $jeu->editeur_id = $request->editeur;
-        $jeu->url_media = 'https://picsum.photos/seed/%27.$jeu-%3Enom.%27/200/200';
+        $jeu->url_media = 'https://picsum.photos/seed/'.$jeu->nom.'/200/200';
+        $jeu->langue = $request->langue;
+        $jeu->age = $request->age;
+        $jeu->nombre_joueurs = $request->nombre_joueurs;
+        $jeu->duree = $request->duree;
+        $jeu->categorie = $request->categorie;
+
+        if($request->file('image') !== null){
+
+            $file = $request->file('image');
+
+
+            $extension = $file->getClientOriginalExtension();
+
+            // File upload location
+            $location = public_path().'/img/';
+
+            $filename = uniqid().'.'.$extension;
+
+            // Upload file
+            $file->move($location, $filename);
+
+            $jeu->url_media = '/img/'.$filename;
+
+        }
+
 
         $jeu->save();
 
-        return Redirect::route('listeJeux');
+        $jeu->mecaniques()->attach($request->avec_mecaniques);
+
+        $jeu->save();
+
+
+        return Redirect::route('pagination');
     }
+
 
     public function add()
     {
