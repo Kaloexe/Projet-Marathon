@@ -14,8 +14,14 @@ class JeuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function index() {
-        $jeux = Jeu::all();
+    function index(Request $request)
+    {
+        $editeur_id = $request->get('editeur', null);
+        if (isset($editeur_id)) {
+            $jeux = Jeu::where('editeur_id', $editeur_id)->get();
+        } else {
+            $jeux = Jeu::all();
+        }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
 

@@ -95,12 +95,14 @@
 
         <div class="container">
             <div class="card-body">
-                <form name="form-create-jeu" method="get" action="{{ URL::route('triEditeur') }}">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux',old('editeur')) }}">
                     <div class="form-group">
                         <label for="description">Editeur</label>
                         <select name="editeur">
                             @foreach( \App\Models\Editeur::all() as $editeur)
+
                                 @if (old('editeur') == $editeur->id)
+
                                     <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
                                 @else
                                     <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
@@ -113,6 +115,7 @@
             </div>
 
             @if(!empty($jeux))
+
 
                 @foreach($jeux as $jeu)
                         @if ($jeu->editeur_id == $editeur->id)

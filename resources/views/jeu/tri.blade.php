@@ -58,26 +58,33 @@
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
-
     <div class="album py-5 bg-light">
-
         <div class="col-md-10 p-lg-10 mx-auto my-10">
             <h1>Liste des jeux</h1>
 
             <a href="{{'listeJeux'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Retour à la liste</button>
+                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
             </a>
-            <a href="{{'groupeEditeur'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par éditeur</button>
-            </a>
-            <a href="{{'tri'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par thème</button>
-            </a>
-            <a href="{{'tri'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Jeux par mécanique</button>
-            </a>
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
+                    <div class="form-group">
+                        <label for="description">Editeur</label>
+                        <select name="editeur">
+                            @foreach( \App\Models\Editeur::all() as $editeur)
+                                {{ $id= old('editeur')}}
+                                @if (old('editeur') == $editeur->id)
 
-        </div>
+                                    <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                                @else
+                                    <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
 
         <div class="container">
             @if(!empty($jeux))
