@@ -19,7 +19,7 @@
     <meta name="theme-color" content="#7952b3">
 
 
-    <style>
+    <style >
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
