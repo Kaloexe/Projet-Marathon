@@ -57,6 +57,19 @@ class Jeu extends Model {
 
     }
 
+    function noteMoyenne1($jeu) {
+        $somme=0;
+        $nbNotes=0;
+        foreach( \App\Models\Commentaire::all() as $com)
+            if ($jeu->id == $com->jeu_id) {
+                $somme += $com->note;
+                $nbNotes++;
+            }
+        if ($nbNotes==0)
+            return 'Pas de notes.';
+        return $somme/$nbNotes;
+    }
+
   function prixMax(){
         $max='Pas de prix.';
 

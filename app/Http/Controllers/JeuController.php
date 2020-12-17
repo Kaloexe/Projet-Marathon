@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Mecanique;
+use League\CommonMark\Extension\Mention\Mention;
 
 class JeuController extends Controller
 {
@@ -221,6 +222,25 @@ class JeuController extends Controller
     function list($n=15){
         $jeux=DB::table('jeux')->paginate($n);
         return view('jeu.listeJeuxPages',['jeux'=>$jeux]);
+    }
+
+    function search() {
+        $q = request()->input('meca');
+        if (isset($q)) {
+            $mecanique = Mecanique::find($q);
+        }
+        $r = request()->input('nombre_joueurs');
+        $s = request()->input('duree');
+        $t = request()->input('langue');
+        $jeux = Jeu::where('nombre_joueurs','like',"%$r%")
+            ->where('langue','like',"%$t%")
+            ->where('duree','like',"%$s")
+            ->get();
+
+
+        return view('rechercher')->with('jeux',$jeux);
+
+
     }
 
 }

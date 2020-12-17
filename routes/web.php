@@ -57,7 +57,7 @@ Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middle
 Route::get('/achatjeu', [ProfilController::class,'addAchat'])->name('achatjeu')->middleware('auth');
 Route::get('/supprimer/{id}', [ProfilController::class,'removeAchat'])->name('supprimerA')->middleware('auth');
 Route::get('/afficheachat', [ProfilController::class,'afficheAchat'])->name('afficheachat')->middleware('auth');
-
+Route::get('rechercher',[JeuController::class, 'search'])->name('rechercher');
 //formulaires ajout jeu + commentaire + profil
 Route::post('/commentaire/store',"\App\Http\Controllers\AddController@commentairestore")->name('commentaire.store')->middleware('auth');
 Route::post('/profil', [ProfilController::class,'storeAchat'])->name('storeAchat')->middleware('auth');

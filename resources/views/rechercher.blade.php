@@ -46,7 +46,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
@@ -57,22 +57,65 @@
         </div>
     </nav>
 </header>
-
 <main>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">Bienvenue dans notre boutique de jeux !</h1>
-            <p class="lead fw-normal">Grâce aux boutons ci-dessous, vous pouvez choisir 5 jeux aléatoires ou les 5 meilleurs jeux</p>
-            <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Jeux aléatoires</a>
-            <a class="btn btn-outline-secondary" href="{{'meilleur'}}"}}>Les 5 meilleurs jeux</a>
-            <a class="btn btn-outline-secondary" href="{{'rechercher'}}"}}>Rechecher</a>
+            <h1 class="display-4 fw-normal">Rechercher</h1>
 
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+            <form name="search" action={{ route('rechercher')}}>
+                @csrf
+                <div class="form-group">
+                    <label for="meca">Mécanique</label>
+                    <input type="text" id="meca" name="meca" value="{{ old('meca') }}" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label for="nombre_joueurs">Nombre de joueurs</label>
+                    <input type="number" id="nombre_joueurs" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" required="">
+                </div>
+
+                <div class="form-group">
+                    <label for="duree">Durée</label>
+                    <input type="text" id="duree" name="duree" value="{{ old('duree') }}" class="form-control" required="">
+                </div>
+
+                <div class="form-group">
+                    <label for="langue">Langue</label>
+                    <input type="text" id="langue" name="langue" value="{{ old('langue') }}" class="form-control" required="">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </form>
+            <br>
+            <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Retour à l'accueil</a>
     </div>
-    @yield('content')
+    </div>
+    @foreach($jeux as $jeu) {
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="col">
+            <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+                <div class="card-body">
+                    <p class="card-text">
+                    <ul>
+                        <li> Catégorie : {{$jeu->categorie}}</li>
+                        <li> Durée de partie : {{$jeu->duree}}</li>
+                        <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                        <li> Description : {{$jeu->description}}</li>
 
+                    </ul>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'infos</a>
+                            <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    @endforeach
 </main>
 
 
@@ -95,10 +138,7 @@
         </div>
     </div>
 </footer>
-
-
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
-
-
 </body>
 </html>
+
