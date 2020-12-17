@@ -84,27 +84,44 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
+                    <div class="form-group">
+                        <label for="description">Thèmes</label>
+                        <select name="theme">
+                            @foreach( \App\Models\Theme::all() as $theme)
 
-{{--            <div class="card-body">--}}
-{{--                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="description">Thèmes</label>--}}
-{{--                        <select name="theme">--}}
-{{--                            @foreach( \App\Models\Theme::all() as $theme)--}}
-{{--                                {{ $id= old('theme')}}--}}
-{{--                                @if (old('theme') == $theme->id)--}}
+                                @if (old('theme') == $theme->id)
 
-{{--                                    <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>--}}
-{{--                                @else--}}
-{{--                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>--}}
-{{--                                @endif--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                    <button type="submit" class="btn btn-primary">Submit</button>--}}
-{{--                </form>--}}
-{{--            </div>--}}
+                                    <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
+                                @else
+                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxMecanique') }}">
+                    <div class="form-group">
+                        <label for="description">Mécaniques</label>
+                        <select name="mecanique">
+                            @foreach( \App\Models\Mecanique::all() as $mecanique)
 
+                                @if (old('mecanique') == $mecanique-> id)
+
+                                    <option value="{{ $mecanique->id }}" selected>{{ $mecanique->nom }}</option>
+                                @else
+                                    <option value="{{ $mecanique->id }}">{{ $mecanique->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
 
         <div class="container">
             @if(!empty($jeux))

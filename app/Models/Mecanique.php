@@ -16,4 +16,7 @@ class Mecanique extends Model
     public function jeux() {
         return $this->belongsToMany(Jeu::class, 'avec_mecaniques');
     }
+
+
+
 }

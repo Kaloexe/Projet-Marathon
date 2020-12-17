@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label for="description">Mécaniques</label>
                         <select name="mecanique">
-                            @foreach( \App\Models\Mecanique->jeux() as $avecmMecanique)
+                            @foreach( \App\Models\Mecanique::all() as $mecanique)
 
                                 @if (old('mecanique') == $mecanique-> id)
 

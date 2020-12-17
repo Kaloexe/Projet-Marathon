@@ -17,7 +17,7 @@ class JeuController extends Controller
      */
     function index(Request $request)
     {
-        $yo=Database\Migrations\2020_12_04_194434_create_avec_mecaniques_table::jeu_id;
+
         $editeur_id = $request->get('editeur', null);
         if (isset($editeur_id)) {
             $jeux = Jeu::where('editeur_id', $editeur_id)->get();
@@ -38,9 +38,12 @@ class JeuController extends Controller
     }
     function indexMecanique(Request $request)
     {
+
         $mecanique_id = $request->get('mecanique', null);
         if (isset($mecanique_id)) {
-            $jeux = Jeu::where('id', $mecanique_id)->get();
+            $mecanique = Mecanique::find($mecanique_id);
+            $jeux= $mecanique->jeux;
+
         } else {
             $jeux = Jeu::all();
         }
