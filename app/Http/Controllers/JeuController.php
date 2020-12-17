@@ -236,26 +236,26 @@ class JeuController extends Controller
         return view('jeu.index2', compact('bestGames'));
         }
 
-        function tri()
-        {
-            $jeux = Jeu::all()->sortBy('nom');
+    function tri()
+    {
+        $jeux = Jeu::all()->sortBy('nom');
 
-            return view('jeu.tri', ['jeux' => $jeux]);
-        }
+        return view('jeu.tri', ['jeux' => $jeux]);
+    }
 
-        function triChrono($id)
-        {
-            $jeu = Jeu::find($id);
+    function triChrono($id)
+    {
+        $jeu = Jeu::find($id);
 
-            return view('jeu.showTri', ['jeu' => $jeu]);
-        }
+        return view('jeu.showTri', ['jeu' => $jeu]);
+    }
 
-        function triEditeur()
-        {
-            $jeux = Jeu::all();
+    function triEditeur()
+    {
+        $jeux = Jeu::all();
 
-            return view('jeu.groupeEditeur', ['jeux' => $jeux]);
-        }
+        return view('jeu.groupeEditeur', ['jeux' => $jeux]);
+    }
     function list($n=15){
         $jeux=DB::table('jeux')->paginate($n);
         return view('jeu.listeJeuxPages',['jeux'=>$jeux]);

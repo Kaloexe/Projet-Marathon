@@ -68,12 +68,11 @@
 
             <div class="card-body">
                 <p class="card-text">
+                <h1>{{$jeu->nom}}</h1><br/><br/>
                 <ul>
-                    <li> Jeu : {{$jeu->nom}}</li>
-                    <li> Durée de partie : {{$jeu->duree}}</li>
-                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-                    <li> Description : {{$jeu->description}}</li>
-                    <li> Thème :
+
+                    <li> <b style="font-size: 20px">Description :</b> {{$jeu->description}}</li>
+                    <li> <b style="font-size: 20px">Thème :</b>
 
                         @foreach( \App\Models\Theme::all() as $theme)
                             @if ($jeu->theme_id == $theme->id)
@@ -82,17 +81,17 @@
                             @endif
                         @endforeach
                     </li>
-                    <li> Langue :  {{$jeu->langue}}</li>
-                    <li> Editeur :
+                    <li> <b style="font-size: 20px">Langue :</b>  {{$jeu->langue}}</li>
+                    <li> <b style="font-size: 20px">Editeur :</b>
                         @foreach( \App\Models\Editeur::all() as $editeur)
                             @if ($jeu->editeur_id == $editeur->id)
                                 {{ $editeur->nom }}
 
                             @endif
                         @endforeach </li>
-                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
-                    <li> Durée : {{$jeu->duree}} </li>
-                    <li> Photo : <br> <img src="{{$jeu->url_media}}" style="width: 20%; height: 200px";></img></li>
+                    <li> <b style="font-size: 20px">Nombre de joueurs :</b> {{$jeu->nombre_joueurs}} </li>
+                    <li> <b style="font-size: 20px">Durée :</b> {{$jeu->duree}} </li>
+                    <li> <b style="font-size: 20px">Photo :</b> <br> <img src="{{$jeu->url_media}}" style="width: 20%; height: 200px";></img></li>
 
                 </ul>
                 </p>
