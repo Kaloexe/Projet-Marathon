@@ -101,6 +101,46 @@
         </div>
     </div>
 
+    <span id="com">Commentaires :</span>
+    <style>
+        #com{
+            font-weight : bold;
+            font-size : 30px;
+        }
+    </style>
+
+
+
+    <ul>
+        @foreach( \App\Models\Commentaire::all() as $com)
+            @if ($jeu->id == $com->jeu_id)
+                @foreach( \App\Models\User::all() as $user)
+                        @if ($user->id == $com->user_id)
+                        <li>  {{ $user->name }}</li>
+
+                        @endif
+                @endforeach
+
+                <li>
+
+                    {{ echo DureeConvert::convertir(time() - strtotime($com->date_com ))   }}
+
+
+                </li>
+
+
+
+                <li>{{$com->commentaire}}</li>
+                    <li>{{$com->note}}</li>
+
+            @endif
+        @endforeach
+    </ul>
+
+
+
+
+
 </main>
 
 <footer class="container py-5">
