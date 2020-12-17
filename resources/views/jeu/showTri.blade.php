@@ -91,8 +91,8 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{{ URL::route('listeJeux')}}" class="btn btn-primary">Retour à la liste</a>
-                        <a href="{{ URL::route('jeu_regles', $jeu->id)}}" class="btn btn-secondary">Voir les règles</a
+                        <a href="{{ URL::route('jeu_show', $jeu->id)}}" class="btn btn-primary">Tri</a>
+
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
     </div>
     <span class="mini-titre">Commentaires :</span>
 
-    <a href="{{ URL::route('showTri', $jeu->id) }}" class="btn btn-primary">Tri</a>
+    <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Tri</a>
 
     </a>
     <style>
@@ -137,7 +137,7 @@
 
 
     <ul>
-        @foreach( \App\Models\Commentaire::all() as $com)
+        @foreach( \App\Models\Commentaire::all()->sortBy('date_com',SORT_REGULAR, true) as $com)
 
             @if ($jeu->id == $com->jeu_id)
                 @foreach( \App\Models\User::all() as $user)
@@ -158,7 +158,7 @@
 
                 <li>{{$com->commentaire}}</li>
                 <li>Note : {{$com->note}}</li>
-                    </br>
+                </br>
 
             @endif
         @endforeach
@@ -203,4 +203,5 @@
 
 </body>
 </html>
+
 

@@ -128,4 +128,11 @@ class JeuController extends Controller
 
         return view('jeu.tri', ['jeux' => $jeux]);
     }
+    function triChrono($id){
+        $jeu = Jeu::find($id);
+
+
+
+        return view('jeu.showTri', ['jeu' => $jeu]);
+    }
 }
