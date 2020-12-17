@@ -46,7 +46,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
@@ -57,21 +57,31 @@
         </div>
     </nav>
 </header>
-
 <main>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">Bienvenue dans notre boutique de jeux !</h1>
-            <p class="lead fw-normal">Grâce aux boutons ci-dessous, vous pouvez choisir 5 jeux aléatoires ou les 5 meilleurs jeux</p>
-            <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Jeux aléatoires</a>
-            <a class="btn btn-outline-secondary" href="{{'meilleur'}}"}}>Les 5 meilleurs jeux</a>
-
-        </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 fw-normal">Les 5 meilleurs jeux</h1>
+        <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Retour à l'accueil</a>
     </div>
-    @yield('content')
-
+</div>
+@foreach($bestGames as $jeu)
+        <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+            <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                    <h2 class="display-5">{{$jeu->nom}}</h2>
+                    <div class="d-flex justify-content-between col-md-3 p-lg-5 mx-auto my-1">
+                        <div class="btn-group align-items-center">
+                            <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'infos</a>
+                            <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <img src="{{$jeu->url_media}}">
+                </div>
+            </div>
+        </div>
+    @endforeach
 </main>
 
 
@@ -94,10 +104,7 @@
         </div>
     </div>
 </footer>
-
-
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
-
-
 </body>
 </html>
+

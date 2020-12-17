@@ -110,4 +110,5 @@ class Jeu extends Model {
         }
         return $nb;
     }
+
 }

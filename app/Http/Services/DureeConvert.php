@@ -106,6 +106,7 @@ class DureeConvert
                     $rank++;
 
             return $rank;
+
         }
         else
             return 'Pas de classement.';
@@ -121,7 +122,34 @@ class DureeConvert
         }
         return $nb;
     }
+    static public function colorR($note){
+        if($note != 'Pas de notes.'){
+            $pas=255/50;
+            return (int)(255-$note*10*$pas);
 
+        }
+
+
+    }
+    static public function colorG($note){
+        if($note != 'Pas de notes.'){
+            $pas=255/50;
+            return (int)($note*10*$pas);
+
+        }
+
+
+    }
+    static public function taille($classement){
+       if($classement<=3)
+           return '200px;';
+       elseif($classement<=7)
+            return '100px;';
+       else
+           return '50px;';
+
+
+    }
 
 
 

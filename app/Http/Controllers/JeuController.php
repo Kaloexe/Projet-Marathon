@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\DureeConvert;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 use App\Models\Jeu;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +30,7 @@ class JeuController extends Controller
         }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+
     function indexTheme(Request $request)
     {
         $theme_id = $request->get('theme', null);
@@ -38,13 +41,14 @@ class JeuController extends Controller
         }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+
     function indexMecanique(Request $request)
     {
 
         $mecanique_id = $request->get('mecanique', null);
         if (isset($mecanique_id)) {
             $mecanique = Mecanique::find($mecanique_id);
-            $jeux= $mecanique->jeux;
+            $jeux = $mecanique->jeux;
 
         } else {
             $jeux = Jeu::all();
@@ -66,16 +70,18 @@ class JeuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id){
+    public function show($id)
+    {
         $jeu = Jeu::find($id);
         return view('jeu.show', ['jeu' => $jeu]);
     }
 
-    public function regles($id){
+    public function regles($id)
+    {
         $jeu = Jeu::find($id);
         return view('jeu.regles', ['jeu' => $jeu]);
     }
@@ -84,7 +90,7 @@ class JeuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -95,8 +101,8 @@ class JeuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -107,7 +113,7 @@ class JeuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -152,28 +158,66 @@ class JeuController extends Controller
         return view('jeux_add');
     }
 
-    public function randomGames(){
+    public function randomGames()
+    {
         $randomGames = Jeu::inRandomOrder()->limit(5)->get();
         return view('jeu.index', compact('randomGames'));
     }
 
-    function tri() {
-        $jeux = Jeu::all()->sortBy('nom');
+    public function noteMoyenne1($jeu)
+    {
+        $somme = 0;
+        $nbNotes = 0;
+        foreach (\App\Models\Commentaire::all() as $com)
 
-        return view('jeu.tri', ['jeux' => $jeux]);
+            if ($jeu->id == $com->jeu_id) {
+                $somme += $com->note;
+                $nbNotes++;
+            }
+        if ($nbNotes == 0)
+            return 'Pas de notes.';
+        return $somme / $nbNotes;
     }
-    function triChrono($id){
-        $jeu = Jeu::find($id);
 
-        return view('jeu.showTri', ['jeu' => $jeu]);
-    }
-
-    function triEditeur() {
+    public function bestGames()
+    {
         $jeux = Jeu::all();
+        $bestGames = array();
+        while (count($bestGames) < 5) {
+            $memoire = 0;
+            $max = 0;
+            foreach ($jeux as $jeu) {
+                $a = $this->noteMoyenne1($jeu);
+                    if ($max < $a && (!in_array($jeu,$bestGames))) {
+                        $max = $a;
+                        $memoire = $jeu;
+                    }
+            }
+            array_push($bestGames, $memoire);
+        }
+        return view('jeu.index2', compact('bestGames'));
+        }
 
-        return view('jeu.groupeEditeur', ['jeux' => $jeux]);
-    }
+        function tri()
+        {
+            $jeux = Jeu::all()->sortBy('nom');
 
+            return view('jeu.tri', ['jeux' => $jeux]);
+        }
+
+        function triChrono($id)
+        {
+            $jeu = Jeu::find($id);
+
+            return view('jeu.showTri', ['jeu' => $jeu]);
+        }
+
+        function triEditeur()
+        {
+            $jeux = Jeu::all();
+
+            return view('jeu.groupeEditeur', ['jeux' => $jeux]);
+        }
     function list($n=15){
         $jeux=DB::table('jeux')->paginate($n);
         return view('jeu.listeJeuxPages',['jeux'=>$jeux]);

@@ -165,16 +165,20 @@
     </ul>
     <span class="mini-titre">Statistiques :</span>
     <ul>
-        <li> Note moyenne : {{ \App\Http\Services\DureeConvert::noteMoyenne($jeu)   }}</li>
-        <li> Note maximale : {{ \App\Http\Services\DureeConvert::noteMax($jeu)   }}</li>
-        <li> Note minimale : {{ \App\Http\Services\DureeConvert::noteMin($jeu)   }}</li>
-        <li> Nombre de commentaires : {{ \App\Http\Services\DureeConvert::nbCom($jeu)   }}</li>
+
+        <li style="color:rgb( {{ \App\Http\Services\DureeConvert::colorR( \App\Http\Services\DureeConvert::noteMoyenne($jeu) )   }},{{ \App\Http\Services\DureeConvert::colorG( \App\Http\Services\DureeConvert::noteMoyenne($jeu))   }},0)";> Note moyenne : {{ \App\Http\Services\DureeConvert::noteMoyenne($jeu)   }}</li>
+
+        <li style="color:rgb( {{ \App\Http\Services\DureeConvert::colorR( \App\Http\Services\DureeConvert::noteMax($jeu) )   }},{{ \App\Http\Services\DureeConvert::colorG( \App\Http\Services\DureeConvert::noteMax($jeu))   }},0)";> Note maximale : {{ \App\Http\Services\DureeConvert::noteMax($jeu)   }}</li>
+        <li style="color:rgb( {{ \App\Http\Services\DureeConvert::colorR( \App\Http\Services\DureeConvert::noteMin($jeu) )   }},{{ \App\Http\Services\DureeConvert::colorG( \App\Http\Services\DureeConvert::noteMin($jeu))   }},0)";> Note minimale : {{ \App\Http\Services\DureeConvert::noteMin($jeu)   }}</li>
+        <li > Nombre de commentaires : {{ \App\Http\Services\DureeConvert::nbCom($jeu)   }}</li>
         <li> Nombre de commentaires (tous les jeux) : {{ \App\Http\Services\DureeConvert::nbComTotal()   }}</li>
-        <li> Classement : {{ \App\Http\Services\DureeConvert::classement($jeu)  }}</li>
+        <li>Classement :<img src="{{asset('images/podium.png')}}" alt="podium" style="width:{{ \App\Http\Services\DureeConvert::taille(\App\Http\Services\DureeConvert::classement($jeu))  }}";"heigth:{{ \App\Http\Services\DureeConvert::taille(\App\Http\Services\DureeConvert::classement($jeu))  }}";>
 
 
-    </ul>
-    <span class="mini-titre">Informations tarifaires :</span>
+            {{ \App\Http\Services\DureeConvert::classement($jeu)  }}</li>
+
+
+        <span class="mini-titre">Informations tarifaires :</span>
     <ul>
         <li> Prix moyen : {{ $jeu->prixMoyen()  }}</li>
         <li> Prix maximal : {{ $jeu->prixMax()  }}</li>
