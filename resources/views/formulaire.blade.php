@@ -104,7 +104,7 @@
         </div>
 
         <div class="form-group">
-            <label for="age">Age</label>
+            <label for="age">Âge</label>
             <input type="integer" name="age" value="{{ old('age') }}" class="form-control" >
         </div>
 
