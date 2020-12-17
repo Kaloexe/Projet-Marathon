@@ -32,7 +32,7 @@
             }
         }
         .w-5{
-            display:none;
+            display: none;
         }
     </style>
 
@@ -58,16 +58,51 @@
 
     </nav>
 </header>
-    <div>
-        @foreach($jeux as $jeu)
-            <li>{{$jeu->nom}}</li><br />
-        @endforeach
+    <div class="container">
+        @if(!empty($jeux))
+            @foreach($jeux as $jeu)
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
+                            <div class="card-body">
+                                <p class="card-text">
+                                <ul>
+                                    <li> Catégorie : {{$jeu->categorie}}</li>
+                                    <li> Durée de partie : {{$jeu->duree}}</li>
+                                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                                    <li> Description : {{$jeu->description}}</li>
+
+                                </ul>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'infos</a>
+                                        <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            @endforeach
+        @else
+            <h3>Aucun jeu</h3>
+        @endif
     </div>
 
     <div>
         {{$jeux->links()}}
     </div>
 
+    <div class="card-body">
+        <form method="get" action="{{ URL::route('pagination') }}">
+            <input type="submit" name="page" value="15" onclick="list()"/>
+            <input type="submit" name="page" value="20" onclick="list()"/>
+            <input type="submit" name="page" value="25" onclick="list()"/>
+        </form>
+    </div>
 
 
 <footer class="container py-5">

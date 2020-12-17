@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Jeu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Support\Facades\DB;
+use App\Models\Mecanique;
 
 class JeuController extends Controller
 {
@@ -17,6 +19,7 @@ class JeuController extends Controller
      */
     function index(Request $request)
     {
+
         $editeur_id = $request->get('editeur', null);
         if (isset($editeur_id)) {
             $jeux = Jeu::where('editeur_id', $editeur_id)->get();
@@ -35,6 +38,20 @@ class JeuController extends Controller
         }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+    function indexMecanique(Request $request)
+    {
+
+        $mecanique_id = $request->get('mecanique', null);
+        if (isset($mecanique_id)) {
+            $mecanique = Mecanique::find($mecanique_id);
+            $jeux= $mecanique->jeux;
+
+        } else {
+            $jeux = Jeu::all();
+        }
+        return view('jeu.listeJeux', ['jeux' => $jeux]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -157,8 +174,8 @@ class JeuController extends Controller
         return view('jeu.groupeEditeur', ['jeux' => $jeux]);
     }
 
-    function list(){
-        $jeux=DB::table('jeux')->paginate(15);
+    function list($n=15){
+        $jeux=DB::table('jeux')->paginate($n);
         return view('jeu.listeJeuxPages',['jeux'=>$jeux]);
     }
 
