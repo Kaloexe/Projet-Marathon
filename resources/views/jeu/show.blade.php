@@ -168,7 +168,10 @@
     </ul>
     <span class="mini-titre">Statistiques :</span>
     <ul>
-        <li> Note moyenne : {{ \App\Http\Services\DureeConvert::noteMoyenne($jeu)   }}</li>
+        <li id="note"> Note moyenne : {{ \App\Http\Services\DureeConvert::noteMoyenne($jeu)   }}</li>
+        <script>
+            var variableRecuperee = <?php \App\Http\Services\DureeConvert::noteMoyenne($jeu) ?>;
+        </script>
         <li> Note maximale : {{ \App\Http\Services\DureeConvert::noteMax($jeu)   }}</li>
         <li> Note minimale : {{ \App\Http\Services\DureeConvert::noteMin($jeu)   }}</li>
         <li> Nombre de commentaires : {{ \App\Http\Services\DureeConvert::nbCom($jeu)   }}</li>
@@ -213,7 +216,7 @@
 </footer>
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
-
+<script degrad="degradenote.js"></script>
 </body>
 </html>
 

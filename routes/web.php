@@ -37,7 +37,7 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\
 Route::middleware(['auth:sanctum', 'verified'])->resource('profil', 'App\Http\Controllers\ProfilController');
 
 Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
-//Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
+Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
 
 Route::post('/commentaire/store',"\App\Http\Controllers\AddController@commentairestore")->name('commentaire.store')->middleware('auth');
 Route::get('/tri', [JeuController::class, 'tri'])->name('listeTri');
@@ -47,8 +47,9 @@ Route::get('/commentaire/delete/{id}',[\App\Http\Controllers\CommentaireControll
 Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\Http\Controllers\JeuController');
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
-Route::get('/listeJeux',[JeuController::class, 'index'])->name('listeJeux');
-//Route::get('/listeJeux',[JeuController::class, 'indexTheme'])->name('listeJeuxTheme');
+Route::get('/listeJeuxTheme',"\App\Http\Controllers\JeuController@indexTheme")->name('listeJeuxTheme');
+Route::get('/listeJeuxMecanique',"\App\Http\Controllers\JeuController@indexMecanique")->name('listeJeuxMecanique');
+
 
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');
