@@ -133,4 +133,9 @@ class JeuController extends Controller
 
         return view('jeu.showTri', ['jeu' => $jeu]);
     }
+    function triEditeur() {
+        $jeux = Jeu::all();
+
+        return view('jeu.groupeEditeur', ['jeux' => $jeux]);
+    }
 }
