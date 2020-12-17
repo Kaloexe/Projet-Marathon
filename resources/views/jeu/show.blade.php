@@ -57,90 +57,71 @@
 </header>
 
 <main>
-    <div class="card-body">
-        <p class="card-text">
-        <ul>
-            <li> Jeu : {{$jeu->nom}}</li>
-            <li> Durée de partie : {{$jeu->duree}}</li>
-            <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-            <li> Description : {{$jeu->description}}</li>
-            <li> Photo : {{$jeu->url_media}}</li>
-            <li> Thème :
+    <div class="album py-5 bg-light">
+        <div class="col-md-10 p-lg-10 mx-auto my-10">
+            <div class="card-body">
+                <p class="card-text">
+                <ul>
+                    <li> Jeu : {{$jeu->nom}}</li>
+                    <li> Durée de partie : {{$jeu->duree}}</li>
+                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
+                    <li> Description : {{$jeu->description}}</li>
+                    <li> Photo : {{$jeu->url_media}}</li>
+                    <li> Thème :
 
-                    @foreach( \App\Models\Theme::all() as $theme)
-                        @if ($jeu->theme_id == $theme->id)
-                            {{ $theme->nom }}
+                            @foreach( \App\Models\Theme::all() as $theme)
+                                @if ($jeu->theme_id == $theme->id)
+                                    {{ $theme->nom }}
 
-                        @endif
-                    @endforeach
-                 </li>
-            <li> Langue :  {{$jeu->langue}}</li>
-            <li> Editeur :
-                @foreach( \App\Models\Editeur::all() as $editeur)
-                    @if ($jeu->editeur_id == $editeur->id)
-                        {{ $editeur->nom }}
+                                @endif
+                            @endforeach
+                         </li>
+                    <li> Langue :  {{$jeu->langue}}</li>
+                    <li> Editeur :
+                        @foreach( \App\Models\Editeur::all() as $editeur)
+                            @if ($jeu->editeur_id == $editeur->id)
+                                {{ $editeur->nom }}
 
-                    @endif
-                @endforeach </li>
-            <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
-            <li> Durée : {{$jeu->duree}} </li>
+                            @endif
+                        @endforeach </li>
+                    <li> Nombre de joueurs : {{$jeu->nombre_joueurs}} </li>
+                    <li> Durée : {{$jeu->duree}} </li>
 
-
-
-
-
-
-
-        </ul>
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
-                <a href="{{ URL::route('listeJeux')}}" class="btn btn-secondary">Voir les règles</a
+                </ul>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{{ URL::route('listeJeux')}}" class="btn btn-primary">Retour à la liste</a>
+                        <a href="{{ URL::route('jeu_regles', $jeu->id)}}" class="btn btn-secondary">Voir les règles</a
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <span id="com">Commentaires :</span>
-    <style>
-        #com{
-            font-weight : bold;
-            font-size : 30px;
-        }
-    </style>
+    <div class="card-body">
+        <form name="form-create-jeu" method="post" action="{{ URL::route('commentaire.store') }}">
+            @csrf
+            <input type="hidden" value="{{$jeu->id}}" name="jeu">
+            <div class="form-group">
+                <label for="commentaire">Commentaire</label>
+                <textarea name="commentaire" class="form-control" required="">
+                    {{ old('commentaire') }}
+                </textarea>
+            </div>
 
+            <div class="form-group">
+                <label for="note">Note</label>
+                <select name="note">
+                    @for($note=0;$note<6;$note++)
+                    <option value="{{$note}}">{{$note}}</option>
+                    @endfor
+                </select>
+            </div>
 
-
-    <ul>
-        @foreach( \App\Models\Commentaire::all() as $com)
-            @if ($jeu->id == $com->jeu_id)
-                @foreach( \App\Models\User::all() as $user)
-                        @if ($user->id == $com->user_id)
-                        <li>  {{ $user->name }}</li>
-
-                        @endif
-                @endforeach
-
-                <li>
-
-                    {{ echo DureeConvert::convertir(time() - strtotime($com->date_com ))   }}
-
-
-                </li>
-
-
-
-                <li>{{$com->commentaire}}</li>
-                    <li>{{$com->note}}</li>
-
-            @endif
-        @endforeach
-    </ul>
-
-
-
-
-
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </main>
 
 <footer class="container py-5">
@@ -150,7 +131,7 @@
             <small class="d-block mb-3 text-muted">&copy; 2020</small>
         </div>
         <div class="col-6 col-md">
-            <h5>La Vikteam</h5>
+            <h5>La Vik Team</h5>
             <ul class="list-unstyled text-small">
                 <li>Mathieu Maes</li>
                 <li>Océane Pouilly</li>

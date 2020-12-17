@@ -15,7 +15,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
 
@@ -34,7 +34,6 @@
             }
         }
     </style>
-
 
     <!-- Custom styles for this template -->
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
@@ -59,7 +58,6 @@
     </nav>
 </header>
 
-
 <main>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -82,7 +80,7 @@
             <small class="d-block mb-3 text-muted">&copy; 2020</small>
         </div>
         <div class="col-6 col-md">
-            <h5>La Vikteam</h5>
+            <h5>La Vik Team</h5>
             <ul class="list-unstyled text-small">
                 <li>Mathieu Maes</li>
                 <li>Océane Pouilly</li>

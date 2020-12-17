@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder {
@@ -12,6 +13,6 @@ class UsersSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        User::factory(5)->create();
+        User::Factory(5)->create();
     }
 }

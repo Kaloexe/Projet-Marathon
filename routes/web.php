@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JeuController;
+use App\Http\Controllers\ProfilController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,12 +36,15 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\
 
 Route::middleware(['auth:sanctum', 'verified'])->resource('profil', 'App\Http\Controllers\ProfilController');
 
-Route::get('/dashboard',"\App\Http\Controllers\Jeux\JeuxController@randomGames");
-Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index");
-
-Route::get('/tri', [JeuController::class, 'tri'])->name('listeJeux');
+Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
+Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
+Route::post('/commentaire/store',"\App\Http\Controllers\AddController@commentairestore")->name('commentaire.store')->middleware('auth');
+Route::get('/tri', [JeuController::class, 'tri'])->name('listeTri');
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
+
+Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
+Route::post('/profil', [ProfilController::class, 'add'])->name('profil')->middleware('auth');
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */

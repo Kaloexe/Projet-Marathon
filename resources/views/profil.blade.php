@@ -13,7 +13,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
     <style>
@@ -58,58 +58,64 @@
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Bienvenue {{Auth::user()->name}}</h2>
+                <p class="lead">Email : {{Auth::user()->email}}</p>
+            </div>
+        </div>
+    </div>
 
-    <?php
-
-    if(array_key_exists('test',$_GET)){
-        Route::middleware(['auth:sanctum', 'verified'])->get(JeuController::class,'trie')->name('listeJeux');
-    }
-
-    ?>
-
-    <div class="album py-5 bg-light">
-        <h1>Règles</h1>
-        <div class="container">
-            @if(!empty($jeux))
-
-                @foreach($jeux as $jeu)
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{$jeu->nom}}</text></svg>
-
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <ul>
-                                        <li> Catégorie : {{$jeu->categorie}}</li>
-                                        <li> Durée de partie : {{$jeu->duree}}</li>
-                                        <li> Nombre de joueurs : {{$jeu->nombre_joueurs}}</li>
-
-                                    </ul>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
                 @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="card-body">
+        <h2 class="text-center">Ajout d'un jeu dans ma ludothèque</h2>
+        <form name="form-create-jeu" method="post" action="{{ URL::route('listeJeux') }}">
+            @csrf
 
-            @else
-                <h3>Aucun jeu</h3>
-            @endif
+            <div class="form-group">
+                <label for="nom">Nom du jeu</label>
+                <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="form-control" required="">
+            </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="form-group">
+                <label for="lieu">Lieu de stockage</label>
+                <input type="text" id="lieu" name="lieu" value="{{ old('lieu') }}" class="form-control" required="">
+            </div>
 
+            <div class="form-group">
+                <label for="dateAchat">Date d'achat</label>
+                <input type="date" id="dateAchat" name="dateAchat" value="{{ old('dateAchat') }}" class="form-control" required="">
+            </div>
 
+            <div class="form-group">
+                <label for="prix">Prix</label>
+                <input type="float" id="prix" name="prix" value="{{ old('prix') }}" class="form-control" required="">
+            </div>
+        </form>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+            <div class="my-3 py-3">
+                <h2 class="display-5">Ma ludothèque</h2>
+                <p class="lead">Contenu</p>
             </div>
         </div>
     </div>
 
 </main>
+
 
 <footer class="container py-5">
     <div class="row">
@@ -118,7 +124,7 @@
             <small class="d-block mb-3 text-muted">&copy; 2020</small>
         </div>
         <div class="col-6 col-md">
-            <h5>La Vikteam</h5>
+            <h5>La Vik Team</h5>
             <ul class="list-unstyled text-small">
                 <li>Mathieu Maes</li>
                 <li>Océane Pouilly</li>

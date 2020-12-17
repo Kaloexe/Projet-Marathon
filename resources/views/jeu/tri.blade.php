@@ -9,15 +9,12 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
-
-
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="icon" href="{{asset('images/favicon.png')}}">
     <meta name="theme-color" content="#7952b3">
-
 
     <style>
 
@@ -35,7 +32,6 @@
             }
         }
     </style>
-
 
     <!-- Custom styles for this template -->
     <link href="{{asset('css/product.css')}}" rel="stylesheet">
@@ -59,7 +55,7 @@
 
     </nav>
 </header>
-{{--hihi--}}
+
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
 
@@ -67,7 +63,7 @@
 
         <h1>Liste des jeux</h1>
 
-        <a href="{{'tri'}}">
+        <a href="{{'listeJeux'}}">
             <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri
             </button>
         </a>
@@ -122,7 +118,7 @@
             <small class="d-block mb-3 text-muted">&copy; 2020</small>
         </div>
         <div class="col-6 col-md">
-            <h5>La Vikteam</h5>
+            <h5>La Vik Team</h5>
             <ul class="list-unstyled text-small">
                 <li>Mathieu Maes</li>
                 <li>Océane Pouilly</li>

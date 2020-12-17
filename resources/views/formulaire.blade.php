@@ -15,7 +15,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
 
@@ -70,7 +70,7 @@
     </div>
 @endif
 <div class="card-body">
-    <form name="form-create-jeu" method="post" action="{{ URL::route('listeJeux') }}">
+    <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
         @csrf
 
         <div class="form-group">
@@ -176,7 +176,7 @@
             <small class="d-block mb-3 text-muted">&copy; 2020</small>
         </div>
         <div class="col-6 col-md">
-            <h5>La Vikteam</h5>
+            <h5>La Vik Team</h5>
             <ul class="list-unstyled text-small">
                 <li>Mathieu Maes</li>
                 <li>Océane Pouilly</li>
