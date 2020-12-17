@@ -46,7 +46,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
         </a>
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="/listeJeux">Liste des jeux</a>
+        <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
         <a class="py-2 d-none d-md-inline-block" href="formulaire">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
@@ -58,7 +58,77 @@
 
     </nav>
 </header>
-    <div class="container">
+<main>
+    <div class="album py-5 bg-light">
+        <div class="col-md-10 p-lg-10 mx-auto my-10">
+            <h1>Liste des jeux</h1>
+
+            <a href="{{'tri'}}">
+                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
+            </a>
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
+                    <div class="form-group">
+                        <label for="description">Editeur</label>
+                        <select name="editeur">
+                            @foreach( \App\Models\Editeur::all() as $editeur)
+
+                                @if (old('editeur') == $editeur->id)
+
+                                    <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                                @else
+                                    <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
+                    <div class="form-group">
+                        <label for="description">Thèmes</label>
+                        <select name="theme">
+                            @foreach( \App\Models\Theme::all() as $theme)
+
+                                @if (old('theme') == $theme->id)
+
+                                    <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
+                                @else
+                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxMecanique') }}">
+                    <div class="form-group">
+                        <label for="description">Mécaniques</label>
+                        <select name="mecanique">
+                            @foreach( \App\Models\Mecanique::all() as $mecanique)
+
+                                @if (old('mecanique') == $mecanique-> id)
+
+                                    <option value="{{ $mecanique->id }}" selected>{{ $mecanique->nom }}</option>
+                                @else
+                                    <option value="{{ $mecanique->id }}">{{ $mecanique->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="container">
         @if(!empty($jeux))
             @foreach($jeux as $jeu)
                 <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
@@ -82,20 +152,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
+
                         </div>
+
                     </div>
-                </div>
-                <br>
+
+
+            </div>
             @endforeach
         @else
             <h3>Aucun jeu</h3>
         @endif
     </div>
-
     <div>
         {{$jeux->links()}}
     </div>
-
     <div class="card-body">
         <form method="get" action="{{ URL::route('pagination') }}">
             <a href="{{route('pagination',15)}}" type="submit">15</a>
@@ -105,6 +177,7 @@
     </div>
 
 
+</main>
 <footer class="container py-5">
     <div class="row">
         <div class="col-12 col-md">
