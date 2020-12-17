@@ -89,12 +89,6 @@
 
                 </ul>
                 </p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a href="{{ URL::route('jeu_show', $jeu->id)}}" class="btn btn-primary">Tri</a>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>
