@@ -94,6 +94,11 @@ class ProfilController extends Controller
         ]);
     }
 
+    public function removeAchat($id) {
+            $user = Auth::user();
+            $user->ludo_perso()->detach($id);
+    }
+
     public function storeAchat(Request $request)
     {
         $request->validate([
