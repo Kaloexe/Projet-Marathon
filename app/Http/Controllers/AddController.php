@@ -44,7 +44,7 @@ class AddController extends Controller
 
         $commentaire->save();
 
-        return Redirect::route('listeJeux');
+        return redirect()->route('jeu_show',['id' => $request->jeu]);
     }
 
 }

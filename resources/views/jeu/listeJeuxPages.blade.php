@@ -98,9 +98,9 @@
 
     <div class="card-body">
         <form method="get" action="{{ URL::route('pagination') }}">
-            <input type="submit" name="page" value="15" onclick="list()"/>
-            <input type="submit" name="page" value="20" onclick="list()"/>
-            <input type="submit" name="page" value="25" onclick="list()"/>
+            <a href="" type="submit" onclick="list(15)">15</a>
+            <a href="" type="submit" onclick="list(20)">20</a>
+            <a href="" type="submit" onclick="list(25)">25</a>
         </form>
     </div>
 
