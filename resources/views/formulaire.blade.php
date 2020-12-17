@@ -15,7 +15,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
 
@@ -70,7 +70,7 @@
     </div>
 @endif
 <div class="card-body">
-    <form name="form-create-jeu" method="post" action="{{ URL::route('listeJeux') }}">
+    <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
         @csrf
 
         <div class="form-group">

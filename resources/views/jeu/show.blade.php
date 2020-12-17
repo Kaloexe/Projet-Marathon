@@ -98,6 +98,30 @@
             </div>
         </div>
     </div>
+
+    <div class="card-body">
+        <form name="form-create-jeu" method="post" action="{{ URL::route('commentaire.store') }}">
+            @csrf
+            <input type="hidden" value="{{$jeu->id}}" name="jeu">
+            <div class="form-group">
+                <label for="commentaire">Commentaire</label>
+                <textarea name="commentaire" class="form-control" required="">
+                    {{ old('commentaire') }}
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="note">Note</label>
+                <select name="note">
+                    @for($note=0;$note<6;$note++)
+                    <option value="{{$note}}">{{$note}}</option>
+                    @endfor
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </main>
 
 <footer class="container py-5">

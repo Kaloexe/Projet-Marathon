@@ -15,7 +15,7 @@
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{asset('images/favicon.png')}}">
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <meta name="theme-color" content="#7952b3">
 
 
@@ -57,7 +57,6 @@
         </div>
     </nav>
 </header>
-
 
 <main>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
