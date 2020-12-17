@@ -70,7 +70,7 @@
     </div>
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <a class="btn btn-outline-secondary" href="{{route('achatjeu')}}"}}>Achat d'un jeu</a>
-        <a class="btn btn-outline-secondary" href="{{route('afficheachat')}}"}}>Afficher la ludothèque</a>
+        <a class="btn btn-outline-secondary" href="{{route('afficheachat')}}"}}>Afficher ma ludothèque</a>
     </div>
 
 
