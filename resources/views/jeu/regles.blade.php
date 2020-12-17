@@ -70,7 +70,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
-                    <a href="{{ URL::route('listeJeux')}}" class="btn btn-warning">Retour à la liste des jeux</a>
+                    <a href="{{ URL::route('listeJeux')}}" class="btn btn-secondary">Retour à la liste des jeux</a>
                 </div>
                 </div>
 
