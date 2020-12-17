@@ -50,6 +50,7 @@ Route::get('/listeJeux',[JeuController::class, 'index'])->name('listeJeux');
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');
 Route::get('/achatjeu', [ProfilController::class,'addAchat'])->name('achatjeu')->middleware('auth');
+Route::get('/afficheachat', [ProfilController::class,'afficheAchat'])->name('afficheachat')->middleware('auth');
 
 Route::post('/profil', [ProfilController::class,'storeAchat'])->name('storeAchat')->middleware('auth');
 Route::get('/jeu/{id}/tri', [JeuController::class, 'triChrono'])->name('showTri');

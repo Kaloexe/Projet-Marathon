@@ -16,7 +16,7 @@ class ProfilController extends Controller
      */
     function index()
     {
-        $user=Auth::user();
+        $user = Auth::user();
         return view('profil');
     }
 
@@ -86,25 +86,33 @@ class ProfilController extends Controller
         //
     }
 
-    public function addAchat() {
-        $jeux=Jeu::all();
-        return view('achatjeu',[
-            'jeux'=>$jeux
+    public function addAchat()
+    {
+        $jeux = Jeu::all();
+        return view('achatjeu', [
+            'jeux' => $jeux
         ]);
     }
 
-    public function storeAchat(Request $request) {
+    public function storeAchat(Request $request)
+    {
         $request->validate([
             'jeu_id' => 'required',
             'lieu' => 'required',
             'date_achat' => 'required',
             'prix' => 'required | numeric',
         ]);
-        $user=Auth::user();
-        $user->ludo_perso()->attach($request->jeu_id,['lieu' => $request->lieu ,
+        $user = Auth::user();
+        $user->ludo_perso()->attach($request->jeu_id, ['lieu' => $request->lieu,
             'prix' => $request->prix,
-            'date_achat' =>$request->date_achat]);
+            'date_achat' => $request->date_achat]);
         $user->save();
         return redirect()->route('profil');
+    }
+
+    public function afficheAchat() {
+        $user = Auth::user();
+        $jeux = $user->ludo_perso1();
+        return view('afficheachat', ['jeux' => $jeux]);
     }
 }
