@@ -79,6 +79,19 @@
             </a>
 
         </div>
+            <div class="form-group">
+                <label for="description">Editeur :</label>
+                <select name="editeur">
+                    @foreach( \App\Models\Editeur::all() as $editeur)
+                        @if (old('editeur') == $editeur->id)
+                            <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                        @else
+                            <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+
 
         <div class="container">
             <div class="card-body">

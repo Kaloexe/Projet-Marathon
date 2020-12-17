@@ -86,7 +86,7 @@
         </div>
 
         <div class="form-group">
-            <label for="regle">Regle</label>
+            <label for="regle">Règles</label>
             <textarea name="regle" class="form-control">
                 {{ old('regle') }}
             </textarea>
@@ -109,7 +109,7 @@
         </div>
 
         <div class="form-group">
-            <label for="nombre_joueurs">Nombre de Joueurs</label>
+            <label for="nombre_joueurs">Nombre de joueurs</label>
             <input type="integer" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" >
         </div>
 
