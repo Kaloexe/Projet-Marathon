@@ -65,7 +65,7 @@
             <p class="lead fw-normal">Grâce aux boutons ci-dessous, vous pouvez choisir 5 jeux aléatoires ou les 5 meilleurs jeux</p>
             <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Jeux aléatoires</a>
             <a class="btn btn-outline-secondary" href="{{'meilleur'}}"}}>Les 5 meilleurs jeux</a>
-            <a class="btn btn-outline-secondary" href="{{'rechercher'}}"}}>Rechecher</a>
+            <a class="btn btn-outline-secondary" href="{{'rechercher'}}"}}>Rechercher</a>
 
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>

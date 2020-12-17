@@ -237,10 +237,7 @@ class JeuController extends Controller
             ->where('duree','like',"%$s")
             ->get();
 
-
         return view('rechercher')->with('jeux',$jeux);
-
-
     }
 
 }
