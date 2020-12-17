@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->resource('jeu.listeJeux', 'App\
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 Route::get('/listeJeux',[JeuController::class, 'index'])->name('listeJeux');
-Route::get('/listeJeux',[JeuController::class, 'indexTheme'])->name('listeJeuxTheme');
+//Route::get('/listeJeux',[JeuController::class, 'indexTheme'])->name('listeJeuxTheme');
 
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');
