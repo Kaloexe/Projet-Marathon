@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
@@ -15,19 +16,32 @@ class CommentaireController extends Controller
         return view('commentaires.show', ['commentaire' => $commentaire, 'action' => $action]);
     }
 
-    public function delete(Request $request, $id) {
+//    public function delete(Request $request, $id)
+//    {
 //        $this->authorize('delete', Commentaire::find($id));
+//
+//        $action = $request->get('action', 'annule');
+//        $commentaire = Commentaire::find($id);
+//        $jeu_id = $commentaire->jeu->id;
+//        if ($action == 'valide') {
+//            $commentaire->delete();
+//        }
+//        return redirect()->route('jeu_show', ['id' => $jeu_id]);
+//    }
 
-        $action = $request->get('action','annule');
+
+
+    public function delete(Request $request, $id) {
         $commentaire = Commentaire::find($id);
+        $user = Auth::user();
         $jeu_id = $commentaire->jeu->id;
-        if ($action=='valide') {
+        if ($user->can('delete', $commentaire)  || $user->can('isAdmin',$commentaire) )  {
             $commentaire->delete();
+            return redirect()->route('jeu_show', ['id' => $jeu_id])->with('status', 'Commentaire supprimé');
+        } else {
+            return redirect()->route('jeu_show', ['id' => $jeu_id])->with('status', 'Impossible de supprimer le commentaire');
         }
-        return redirect()->route('jeu_show',['id' => $jeu_id]);
     }
-
-
 
 
 }

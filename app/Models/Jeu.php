@@ -52,7 +52,7 @@ class Jeu extends Model {
         }
         if ($nb ==0)
             return 'Pas de prix indiqué.';
-        return sprintf("%6.2f euros.",$somme/$nb);
+        return sprintf("%6.2f€",$somme/$nb);
 
 
     }
@@ -73,7 +73,7 @@ class Jeu extends Model {
         }
         if ($max=='Pas de prix.')
             return $max;
-        return $max . ' euros.';
+        return $max . '€';
 
 
 
@@ -97,7 +97,7 @@ class Jeu extends Model {
         }
         if ($min=='Pas de prix.')
             return $min;
-        return $min . ' euros.';
+        return $min . '€';
 
 
 
