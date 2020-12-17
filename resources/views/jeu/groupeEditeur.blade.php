@@ -54,6 +54,7 @@
         </div>
 
     </nav>
+
 </header>
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
@@ -80,6 +81,23 @@
         </div>
 
         <div class="container">
+            <div class="card-body">
+            <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
+                <div class="form-group">
+                    <label for="description">Editeur</label>
+                    <select name="editeur">
+                        @foreach( \App\Models\Editeur::all() as $editeur)
+                            @if (old('editeur') == $editeur->id)
+                                <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                            @else
+                                <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+            </form>
+            </div>
+
             @if(!empty($jeux))
 
                 @foreach($jeux as $jeu)

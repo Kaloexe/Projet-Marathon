@@ -131,10 +131,16 @@ class JeuController extends Controller
     function triChrono($id){
         $jeu = Jeu::find($id);
 
-
-
         return view('jeu.showTri', ['jeu' => $jeu]);
     }
+<<<<<<< HEAD
 
 
+=======
+    function triEditeur() {
+        $jeux = Jeu::all();
+
+        return view('jeu.groupeEditeur', ['jeux' => $jeux]);
+    }
+>>>>>>> 131c1ce0e3819d5cfceba65e3ba280d314da4763
 }

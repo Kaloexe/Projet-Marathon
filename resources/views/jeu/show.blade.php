@@ -59,6 +59,7 @@
 <main>
     <div class="album py-5 bg-light">
         <div class="col-md-10 p-lg-10 mx-auto my-10">
+
             <div class="card-body">
                 <p class="card-text">
                 <ul>

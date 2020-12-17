@@ -91,8 +91,8 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{{ URL::route('jeu_show', $jeu->id)}}" class="btn btn-primary">Tri</a>
-
+                        <a href="{{ URL::route('listeJeux')}}" class="btn btn-primary">Retour à la liste</a>
+                        <a href="{{ URL::route('jeu_regles', $jeu->id)}}" class="btn btn-secondary">Voir les règles</a
                     </div>
                 </div>
             </div>
@@ -174,7 +174,15 @@
 
 
     </ul>
+    <span class="mini-titre">Informations tarifaires :</span>
+    <ul>
+        <li> Prix moyen : {{ $jeu->prixMoyen()  }}</li>
+        <li> Prix maximal : {{ $jeu->prixMax()  }}</li>
+        <li> Prix minimal : {{ $jeu->prixMin()  }}</li>
+        <li> Nombre d'achats : {{ $jeu->nbAchat()  }}</li>
+        <li> Nombre d'utilisateurs : {{\App\Http\Services\DureeConvert::nbUserTotal()  }}</li>
 
+    </ul>
 
 
 </main>

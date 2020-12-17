@@ -68,8 +68,9 @@
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
     @yield('content')
-
+    </div>
 </main>
 
 

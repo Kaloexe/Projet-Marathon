@@ -40,6 +40,8 @@ Route::get('/dashboard',"\App\Http\Controllers\JeuController@randomGames");
 Route::get('/listeJeux',"\App\Http\Controllers\JeuController@index")->name('listeJeux');
 Route::post('/commentaire/store',"\App\Http\Controllers\AddController@commentairestore")->name('commentaire.store')->middleware('auth');
 Route::get('/tri', [JeuController::class, 'tri'])->name('listeTri');
+Route::get('/groupeEditeur', [JeuController::class, 'triEditeur'])->name('triEditeur');
+
 Route::get('/jeu/{id}', [JeuController::class, 'show'])->name('jeu_show');
 Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles');
 
