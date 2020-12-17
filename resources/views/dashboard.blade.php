@@ -48,6 +48,7 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="rechercher">Rechercher</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -65,7 +66,7 @@
             <p class="lead fw-normal">Grâce aux boutons ci-dessous, vous pouvez choisir 5 jeux aléatoires ou les 5 meilleurs jeux</p>
             <a class="btn btn-outline-secondary" href="{{'dashboard'}}"}}>Jeux aléatoires</a>
             <a class="btn btn-outline-secondary" href="{{'meilleur'}}"}}>Les 5 meilleurs jeux</a>
-            <a class="btn btn-outline-secondary" href="{{'rechercher'}}"}}>Rechecher</a>
+            <a class="btn btn-outline-secondary" href="{{'rechercher'}}"}}>Rechercher</a>
 
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>

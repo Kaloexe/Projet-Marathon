@@ -48,6 +48,7 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="listeJeux">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="rechercher">Rechercher</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -64,10 +65,6 @@
 
             <form name="search" action={{ route('rechercher')}}>
                 @csrf
-                <div class="form-group">
-                    <label for="meca">Mécanique</label>
-                    <input type="text" id="meca" name="meca" value="{{ old('meca') }}" class="form-control" required="">
-                </div>
                 <div class="form-group">
                     <label for="nombre_joueurs">Nombre de joueurs</label>
                     <input type="number" id="nombre_joueurs" name="nombre_joueurs" value="{{ old('nombre_joueurs') }}" class="form-control" required="">

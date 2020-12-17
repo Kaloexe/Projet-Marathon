@@ -48,6 +48,7 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="rechercher">Rechercher</a>
         <a class="py-2 d-none d-md-inline-block" href="formulaire">Ajout Jeux</a>
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -180,7 +181,7 @@
             <a href="{{route('pagination',25)}}" type="submit">25</a>
         </form>
     </div>
-
+    </div>
 
 </main>
 <footer class="container py-5">

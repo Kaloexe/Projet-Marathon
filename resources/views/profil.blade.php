@@ -45,6 +45,7 @@
         <a class="py-2 d-none d-md-inline-block" href="dashboard">Accueil</a>
         <a class="py-2 d-none d-md-inline-block" href="/listeJeuxPages">Liste des jeux</a>
         <a class="py-2 d-none d-md-inline-block" href="profil">Profil</a>
+        <a class="py-2 d-none d-md-inline-block" href="rechercher">Rechercher</a>
 
         <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
             <form method="POST" action="{{ route('logout') }}">
@@ -65,15 +66,12 @@
                 <p class="lead">Email : {{Auth::user()->email}}</p>
             </div>
         </div>
+
     </div>
-
-    <a href="{{route('achatjeu')}}">
-        Achat d'un jeu
-    </a>
-
-    <a href="{{route('afficheachat')}}">
-      Afficher la ludothèque
-    </a>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <a class="btn btn-outline-secondary" href="{{route('achatjeu')}}"}}>Achat d'un jeu</a>
+        <a class="btn btn-outline-secondary" href="{{route('afficheachat')}}"}}>Afficher la ludothèque</a>
+    </div>
 
 
 

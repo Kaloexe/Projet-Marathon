@@ -263,9 +263,9 @@ class JeuController extends Controller
 
     function search() {
         $q = request()->input('meca');
-        if (isset($q)) {
+        /*if (isset($q)) {
             $mecanique = Mecanique::find($q);
-        }
+        }*/
         $r = request()->input('nombre_joueurs');
         $s = request()->input('duree');
         $t = request()->input('langue');
@@ -274,10 +274,7 @@ class JeuController extends Controller
             ->where('duree','like',"%$s")
             ->get();
 
-
         return view('rechercher')->with('jeux',$jeux);
-
-
     }
 
 }
