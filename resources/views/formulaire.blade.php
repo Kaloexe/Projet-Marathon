@@ -72,7 +72,6 @@
 <div class="card-body">
     <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
         @csrf
-
         <div class="form-group">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" value="{{ old('nom') }}" class="form-control" required="">

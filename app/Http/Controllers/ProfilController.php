@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jeu;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class ProfilController extends Controller
 {
     /**
@@ -13,8 +16,8 @@ class ProfilController extends Controller
      */
     function index()
     {
-        $users = User::all();
-        return view('profil', ['users' => $users]);
+        $user=Auth::user();
+        return view('profil');
     }
 
     /**
@@ -73,7 +76,7 @@ class ProfilController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage.]
      *
      * @param int $id
      * @return \Illuminate\Http\Response
@@ -83,31 +86,25 @@ class ProfilController extends Controller
         //
     }
 
-    public function addGame(Request $request)
-    {
-        $request->validate(
-            [
-                'nom' => 'required|unique:jeux',
-                'lieu' => 'required',
-                'prix' => 'required',
-                'date_achat' => 'required',
-            ],
-            [
-                'nom.required' => 'Le nom est requis',
-                'nom.unique' => 'Le nom doit être unique',
-                'lieu.required' => 'La lieu est requis',
-                'prix.required' => 'Le prix est requis',
-                'date_achat.required' => 'La date est requise',
-            ]
-        );
+    public function addAchat() {
+        $jeux=Jeu::all();
+        return view('achatjeu',[
+            'jeux'=>$jeux
+        ]);
+    }
 
-        $achat = new Achat();
-        //$achat->nom = $request->nom;
-        $achat->lieu = $request->lieu;
-        $achat->prix = $request->prix;
-        $achat->date_achat = $request->date_achat;
-        $achat->save();
-
-        return Redirect::route('profil');
+    public function storeAchat(Request $request) {
+        $request->validate([
+            'jeu_id' => 'required',
+            'lieu' => 'required',
+            'date_achat' => 'required',
+            'prix' => 'required | numeric',
+        ]);
+        $user=Auth::user();
+        $user->ludo_perso()->attach($request->jeu_id,['lieu' => $request->lieu ,
+            'prix' => $request->prix,
+            'date_achat' =>$request->date_achat]);
+        $user->save();
+        return redirect()->route('profil');
     }
 }

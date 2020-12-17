@@ -58,15 +58,48 @@
 
 <script src="{{asset('js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
 <main>
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-            <div class="my-3 py-3">
-                <h2 class="display-5">Bienvenue {{Auth::user()->name}}</h2>
-                <p class="lead">Email : {{Auth::user()->email}}</p>
-            </div>
-        </div>
-    </div>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="card-body">
+        <h2 class="text-center">Ajout d'un jeu dans ma ludothèque</h2>
+        <form name="form-add-jeu" method="post" action="{{ URL::route('storeAchat') }}">
+            @csrf
+            <div class="form-group">
+                <label for="jeu">Jeu acheté</label>
+                <select name="jeu_id" id="jeu">
+                     @foreach($jeux as $jeu)
+                    <option value="{{$jeu->id}}"> {{$jeu->nom}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lieu">Lieu de stockage</label>
+                <input type="text" id="lieu" name="lieu" value="{{ old('lieu') }}" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="dateAchat">Date d'achat</label>
+                <input type="date" id="dateAchat" name="date_achat" value="{{ old('date_achat') }}" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="prix">Prix</label>
+                <input type="float" id="prix" name="prix" value="{{ old('prix') }}" class="form-control" required="">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <br>
+
+    </div>
 
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
@@ -76,10 +109,6 @@
             </div>
         </div>
     </div>
-
-    <a href="{{route('achatjeu')}}">
-        Achat d'un jeu
-    </a>
 
 </main>
 

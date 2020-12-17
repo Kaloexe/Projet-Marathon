@@ -81,4 +81,6 @@ class RegleController extends Controller
     {
         //
     }
+
+
 }
