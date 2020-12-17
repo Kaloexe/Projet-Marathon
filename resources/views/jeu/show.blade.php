@@ -102,7 +102,7 @@
     <div class="card-body">
         <form name="form-create-jeu" method="post" action="{{ URL::route('commentaire.store') }}">
             @csrf
-
+            <input type="hidden" value="{{$jeu->id}}" name="jeu">
             <div class="form-group">
                 <label for="commentaire">Commentaire</label>
                 <textarea name="commentaire" class="form-control" required="">

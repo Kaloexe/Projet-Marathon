@@ -40,6 +40,7 @@ class AddController extends Controller
         $commentaire->note = $request->note;
         $commentaire->user_id = Auth::user()->id;
         $commentaire->date_com = new \DateTime('now');
+        $commentaire->jeu_id = $request->jeu;
 
         $commentaire->save();
 
