@@ -11,7 +11,8 @@ class ProfilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    function index() {
+    function index()
+    {
         $users = User::all();
         return view('profil', ['users' => $users]);
     }
@@ -29,7 +30,7 @@ class ProfilController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +41,7 @@ class ProfilController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +52,7 @@ class ProfilController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +63,8 @@ class ProfilController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,11 +75,39 @@ class ProfilController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function addGame(Request $request)
+    {
+        $request->validate(
+            [
+                'nom' => 'required|unique:jeux',
+                'lieu' => 'required',
+                'prix' => 'required',
+                'date_achat' => 'required',
+            ],
+            [
+                'nom.required' => 'Le nom est requis',
+                'nom.unique' => 'Le nom doit être unique',
+                'lieu.required' => 'La lieu est requis',
+                'prix.required' => 'Le prix est requis',
+                'date_achat.required' => 'La date est requise',
+            ]
+        );
+
+        $achat = new Achat();
+        //$achat->nom = $request->nom;
+        $achat->lieu = $request->lieu;
+        $achat->prix = $request->prix;
+        $achat->date_achat = $request->date_achat;
+        $achat->save();
+
+        return Redirect::route('profil');
     }
 }
