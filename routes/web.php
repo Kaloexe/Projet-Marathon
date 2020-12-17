@@ -45,6 +45,7 @@ Route::get('/regles/{id}', [JeuController::class, 'regles'])->name('jeu_regles')
 
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 Route::post('/profil', [ProfilController::class, 'add'])->name('profil')->middleware('auth');
+Route::get('/jeu/{id}/tri', [JeuController::class, 'triChrono'])->name('showTri');
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */
