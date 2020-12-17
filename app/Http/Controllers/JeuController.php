@@ -24,6 +24,16 @@ class JeuController extends Controller
         }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+    function indexTheme(Request $request)
+    {
+        $theme_id = $request->get('theme', null);
+        if (isset($theme_id)) {
+            $jeux = Jeu::where('theme_id', $theme_id)->get();
+        } else {
+            $jeux = Jeu::all();
+        }
+        return view('jeu.listeJeux', ['jeux' => $jeux]);
+    }
 
     /**
      * Show the form for creating a new resource.
