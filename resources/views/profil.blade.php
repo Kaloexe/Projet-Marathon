@@ -65,15 +65,12 @@
                 <p class="lead">Email : {{Auth::user()->email}}</p>
             </div>
         </div>
+
     </div>
-
-    <a href="{{route('achatjeu')}}">
-        Achat d'un jeu
-    </a>
-
-    <a href="{{route('afficheachat')}}">
-      Afficher la ludothèque
-    </a>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <a class="btn btn-outline-secondary" href="{{route('achatjeu')}}"}}>Achat d'un jeu</a>
+        <a class="btn btn-outline-secondary" href="{{route('afficheachat')}}"}}>Afficher la ludothèque</a>
+    </div>
 
 
 
