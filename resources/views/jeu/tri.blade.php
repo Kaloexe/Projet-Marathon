@@ -64,27 +64,29 @@
             <h1>Liste des jeux</h1>
 
             <a href="{{'listeJeuxPages'}}">
-                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Tri</button>
+                <button class="bg-white text-red-500 px-4 py-2 rounded mr-auto hover:underline">Retour à la liste</button>
             </a>
-                        <div class="card-body">
-                            <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
-                                <div class="form-group">
-                                    <label for="description">Editeur</label>
-                                    <select name="editeur">
-                                        @foreach( \App\Models\Editeur::all() as $editeur)
-                                            {{ $id= old('editeur')}}
-                                            @if (old('editeur') == $editeur->id)
+            <div class="col-md-12 p-lg-12 mx-auto my-10" style="display: inline-flex">
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeux') }}">
+                    <div class="form-group">
+                        <label for="description">Editeur</label>
+                        <select name="editeur">
+                            @foreach( \App\Models\Editeur::all() as $editeur)
+                                {{ $id= old('editeur')}}
+                                @if (old('editeur') == $editeur->id)
 
-                                                <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
-                                            @else
-                                                <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                                    <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
+                                @else
+                                    <option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
             <div class="card-body">
                 <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
                     <div class="form-group">
@@ -100,8 +102,9 @@
                                 @endif
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
             </div>
             <div class="card-body">
@@ -119,9 +122,11 @@
                                 @endif
                             @endforeach
                         </select>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
                 </form>
+            </div>
             </div>
 
         <div class="container">

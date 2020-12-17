@@ -59,20 +59,23 @@
 
 
 <main>
-    <div class="card-body">
-        <p class="card-text">
-        <ul>
-            <li> Jeu : {{$jeu->nom}}</li>
-            <li> Règle : {{$jeu->regles}}</li>
-            <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-                <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
-                <a href="{{ URL::route('listeJeux')}}" class="btn btn-warning">Retour à la liste des jeux</a>
-            </div>
-            </div>
+    <div class="col-md-8 p-lg-8 mx-auto my-10">
+        <div class="card-body">
+            <p class="card-text">
+            <ul>
+                <li> Jeu : {{$jeu->nom}}</li>
+                <li> Règle : {{$jeu->regles}}</li>
+                <br />
+                <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Retour au jeu</a>
+                    <a href="{{ URL::route('listeJeux')}}" class="btn btn-warning">Retour à la liste des jeux</a>
+                </div>
+                </div>
 
-        </ul>
-        </p>
+            </ul>
+            </p>
+        </div>
     </div>
 </main>
 
