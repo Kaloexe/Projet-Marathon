@@ -189,9 +189,63 @@
         <li> Prix maximal : {{ $jeu->prixMax()  }}</li>
         <li> Prix minimal : {{ $jeu->prixMin()  }}</li>
         <li> Nombre d'achats : {{ $jeu->nbAchat()  }}</li>
-        <li> Nombre d'utilisateurs : {{\App\Http\Services\DureeConvert::nbUserTotal()  }}</li>
-
     </ul>
+    <div class="SIZE">
+        <span class="test1">{{$jeu->prixMin()}}</span><span class="test2">{{$jeu->prixMoyen()}}</span><span class="test3">{{$jeu->prixMax()}}</span>
+        <HR class="stpMARCHE2" size=10>
+        <img class="stpMARCHE" src="https://www.virages.com/Images/Categorie_B15/27149-500.gif" width="20" height="20">
+    </div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <ul>
+        <li> Nombre d'utilisateurs : {{\App\Http\Services\DureeConvert::nbUserTotal()  }}</li>
+    </ul>
+
+    <div class="progress-circle" data-value="38">
+    </div>
+
+    <style>
+        .test1{
+            position: absolute;
+            right: 85%;
+        }
+        .test2{
+            position: absolute;
+            right: 47%;
+        }
+        .test3{
+            position: absolute;
+            right: 0%;
+        }
+        .SIZE{
+            height: 400px;
+            width: 400px;
+            position: absolute;
+        }
+
+        .stpMARCHE{
+            position: absolute;
+            right: 49%;
+        }
+
+        .stpMARCHE2{
+            margin-top: 25px;
+        }
+
+        .progress-circle{
+            position: relative;             /* pour servir de référent */
+            box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+            font-size: 6em;                 /* pour définir les dimensions */
+            width: 1em;                     /* fixe la largeur */
+            height: 1em;                    /* fixe la hauteur */
+            border-radius: 50%;             /* rendu aspect circulaire */
+            border: .15em solid #209925;       /* couleur de fond de l'anneau */
+            background-color: #676767;         /* couleur de fond de la progress bar */
+        }
+
+    </style>
 
 
 
