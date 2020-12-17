@@ -57,6 +57,11 @@
 </header>
 
 <main>
+
+    @if (session('status'))
+        {{ session('status') }}
+    @endif
+
     <div class="album py-5 bg-light">
         <div class="col-md-10 p-lg-10 mx-auto my-10">
 
