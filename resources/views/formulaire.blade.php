@@ -59,7 +59,7 @@
     </nav>
 </header>
 
-<main>
+<div>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -70,6 +70,7 @@
     </div>
 @endif
 <div class="card-body">
+    <div class="col-md-8 p-lg-10 mx-auto my-10">
     <form name="form-create-jeu" method="post" action="{{ URL::route('jeu_store') }}">
         @csrf
         <div class="form-group">
@@ -122,19 +123,6 @@
             <input type="string" name="duree" value="{{ old('duree') }}" class="form-control" >
         </div>
 
-{{--        <div class="form-group">--}}
-{{--            <label for="description">Id</label>--}}
-{{--            <select name="user">--}}
-{{--                @foreach( \App\Models\User::all() as $user)--}}
-{{--                    @if (old('id') == $user->id)--}}
-{{--                        <option value="{{ $user->id }}" selected>{{ $user->nom }}</option>--}}
-{{--                    @else--}}
-{{--                        <option value="{{ $user->id }}">{{ $user->nom }}</option>--}}
-{{--                    @endif--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-{{--        </div>--}}
-
         <div class="form-group">
             <label for="description">Theme</label>
             <select name="theme">
@@ -163,6 +151,7 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
 </div>
 </div>
 </main>

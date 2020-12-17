@@ -70,6 +70,7 @@
     @endif
 
     <div class="card-body">
+        <div class="col-md-10 p-lg-10 mx-auto my-10">
         <h2 class="text-center">Ajout d'un jeu dans ma ludothèque</h2>
         <a href="{{URL::route('profil')}}" class="btn btn-warning">Retourner au profil</a>
         <br>
@@ -103,6 +104,7 @@
         </form>
         <br>
 
+    </div>
     </div>
 </main>
 
