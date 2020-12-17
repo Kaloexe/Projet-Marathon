@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jeu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Mecanique;
 
 class JeuController extends Controller
 {
@@ -16,6 +17,7 @@ class JeuController extends Controller
      */
     function index(Request $request)
     {
+        $yo=Database\Migrations\2020_12_04_194434_create_avec_mecaniques_table::jeu_id;
         $editeur_id = $request->get('editeur', null);
         if (isset($editeur_id)) {
             $jeux = Jeu::where('editeur_id', $editeur_id)->get();
@@ -34,6 +36,17 @@ class JeuController extends Controller
         }
         return view('jeu.listeJeux', ['jeux' => $jeux]);
     }
+    function indexMecanique(Request $request)
+    {
+        $mecanique_id = $request->get('mecanique', null);
+        if (isset($mecanique_id)) {
+            $jeux = Jeu::where('id', $mecanique_id)->get();
+        } else {
+            $jeux = Jeu::all();
+        }
+        return view('jeu.listeJeux', ['jeux' => $jeux]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

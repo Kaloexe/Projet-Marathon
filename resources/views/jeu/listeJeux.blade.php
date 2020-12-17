@@ -73,7 +73,7 @@
                         <label for="description">Editeur</label>
                         <select name="editeur">
                             @foreach( \App\Models\Editeur::all() as $editeur)
-                                {{ $id= old('editeur')}}
+
                                 @if (old('editeur') == $editeur->id)
 
                                     <option value="{{ $editeur->id }}" selected>{{ $editeur->nom }}</option>
@@ -87,25 +87,48 @@
                 </form>
             </div>
 
-{{--            <div class="card-body">--}}
-{{--                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="description">Thèmes</label>--}}
-{{--                        <select name="theme">--}}
-{{--                            @foreach( \App\Models\Theme::all() as $theme)--}}
-{{--                                {{ $id= old('theme')}}--}}
-{{--                                @if (old('theme') == $theme->id)--}}
+            <div class="card-body">
+               <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxTheme') }}">
+                   <div class="form-group">
+                     <label for="description">Thèmes</label>
+                      <select name="theme">
+                           @foreach( \App\Models\Theme::all() as $theme)
 
-{{--                                    <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>--}}
-{{--                                @else--}}
-{{--                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>--}}
-{{--                                @endif--}}
-{{--                            @endforeach--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                    <button type="submit" class="btn btn-primary">Submit</button>--}}
-{{--                </form>--}}
-{{--            </div>--}}
+                            @if (old('theme') == $theme->id)
+
+                                  <option value="{{ $theme->id }}" selected>{{ $theme->nom }}</option>
+                                @else
+                                    <option value="{{ $theme->id }}">{{ $theme->nom }}</option>
+                               @endif
+                           @endforeach
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+         </div>
+
+            <div class="card-body">
+                <form name="form-create-jeu" method="get" action="{{ URL::route('listeJeuxMecanique') }}">
+                    <div class="form-group">
+                        <label for="description">Mécaniques</label>
+                        <select name="mecanique">
+                            @foreach( \App\Models\Mecanique->jeux() as $avecmMecanique)
+
+                                @if (old('mecanique') == $mecanique-> id)
+
+                                    <option value="{{ $mecanique->id }}" selected>{{ $mecanique->nom }}</option>
+                                @else
+                                    <option value="{{ $mecanique->id }}">{{ $mecanique->nom }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+
+
 
 
         </div>
