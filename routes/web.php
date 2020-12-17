@@ -58,6 +58,8 @@ Route::get('/afficheachat', [ProfilController::class,'afficheAchat'])->name('aff
 
 Route::post('/profil', [ProfilController::class,'storeAchat'])->name('storeAchat')->middleware('auth');
 Route::get('/jeu/{id}/tri', [JeuController::class, 'triChrono'])->name('showTri');
+
+Route::get('liste',[JeuController::class, 'list']);
 /*
 Route::middleware(['auth:sanctum', 'verified'])->resource('dashboard', 'App\Http\Controllers\Jeux\AddController');
 */

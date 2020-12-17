@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jeu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class JeuController extends Controller
 {
@@ -154,6 +155,11 @@ class JeuController extends Controller
         $jeux = Jeu::all();
 
         return view('jeu.groupeEditeur', ['jeux' => $jeux]);
+    }
+
+    function list(){
+        $jeux=DB::table('jeux')->paginate(15);
+        return view('jeu.listeJeuxPages',['jeux'=>$jeux]);
     }
 
 }
