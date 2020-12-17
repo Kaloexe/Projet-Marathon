@@ -64,7 +64,7 @@
                 <h2 class="display-5">Ma ludothèque</h2>
                 <p class="lead">
                     <div class="container">
-
+                        <a href="{{URL::route('profil')}}" class="btn btn-primary">Retourner au profil</a>
                         @if(!empty($jeux))
                             @foreach($jeux as $jeu)
                                 <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
@@ -85,6 +85,7 @@
                     <div class="btn-group">
                         <a href="{{ URL::route('jeu_show', $jeu->id) }}" class="btn btn-primary">Plus d'infos</a>
                         <a href="{{ URL::route('jeu_regles', $jeu->id) }}" class="btn btn-secondary">Voir les règles</a>
+                        <a href="{{ URL::route('supprimerA', $jeu->id) }}" class="btn btn-danger">Supprimer le jeu</a>
                     </div>
                 </div>
             </div>

@@ -52,6 +52,8 @@ Route::get('/listeJeuxMecanique',"\App\Http\Controllers\JeuController@indexMecan
 Route::post('/formulaire', [JeuController::class, 'store'])->name('jeu_store')->middleware('auth');
 Route::get('/profil', [ProfilController::class,'index'])->name('profil')->middleware('auth');
 Route::get('/achatjeu', [ProfilController::class,'addAchat'])->name('achatjeu')->middleware('auth');
+Route::get('/supprimer/{id}', [ProfilController::class,'removeAchat'])->name('supprimerA')->middleware('auth');
+
 
 Route::get('/afficheachat', [ProfilController::class,'afficheAchat'])->name('afficheachat')->middleware('auth');
 
