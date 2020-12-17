@@ -125,7 +125,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Soumettre</button>
         </form>
     </div>
     <span class="mini-titre">Commentaires :</span>
